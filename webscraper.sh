@@ -8,13 +8,16 @@ sed -i 's|</body>.*$||' filtered.html
 # - remove all script elements
 sed -i 's|<script[ >].*</script>||g' filtered.html
 # - get each table in an individual line
-sed -i 's|\(</table></div>\)|\1\n|g' filtered.html
+sed -i 's|\(</table></div></div></div>\)|\1\n|g' filtered.html
 # - remove surrounding element of all tables
-sed -i 's|^<div id="__next"><div class="left">||g' filtered.html
-grep "^<div><h1>" filtered.html > filtered.tmp
+sed -i 's|^<div id="__next"><div>||g' filtered.html
+# - ... and of each table
+sed -i 's|^<div class="container"><div class="left">||g' filtered.html
+# - ... and only keep relevant lines (last line contains artefacts from newline introduction above)
+grep "^<h1>" filtered.html > filtered.tmp
 mv filtered.tmp filtered.html
 # - remote table of team win/losses
-sed -i 's|<table class="smaller">[^\n]*</table>||g' filtered.html
+sed -i 's|<div class="right"><h1>TEAMS.*$||g' filtered.html
 
 # convert each line (table) into total table rows
 # cols:
