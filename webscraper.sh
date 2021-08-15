@@ -1,5 +1,5 @@
 # reload
-#wget https://www.oatz.net/rocketleague/ --output-document=raw.html
+wget https://www.oatz.net/rocketleague/ --output-document=raw.html
 
 # filter raw html
 # - only keep conent ob html body
