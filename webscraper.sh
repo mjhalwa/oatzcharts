@@ -1,23 +1,29 @@
 # reload
-wget https://www.oatz.net/rocketleague/ --output-document=raw.html
+#wget https://www.oatz.net/rocketleague/all --output-document=raw.html
 
-# filter raw html
-# - only keep conent ob html body
+# filter raw html for JSON data
+# - get JSON content of script element
+sed 's|^.*</head>||' raw.html | \
+  sed 's|^.*<script id="__NEXT_DATA__" type="application/json">\(.*\)</script>.*$|\1|' | \
+  jq '.' > data.json 
+
+# filter raw html to collect tabular data from each table
+# - only keep content of html body
 sed 's|^.*<body>||' raw.html > filtered.html
 sed -i 's|</body>.*$||' filtered.html
 # - remove all script elements
 sed -i 's|<script[ >].*</script>||g' filtered.html
-# - get each table in an individual line
-sed -i 's|\(</table></div></div></div>\)|\1\n|g' filtered.html
-# - remove surrounding element of all tables
-sed -i 's|^<div id="__next"><div>||g' filtered.html
-# - ... and of each table
+# - get each day in an individual line
+sed -i 's|\(<div class="container">\)|\n\1|g' filtered.html
+# - remove additonal table of each day, starting with win/loss table
+sed -i 's|<div class="right"><h1>TEAMS.*$||g' filtered.html
+# - remove everything afer the first table of each day
+sed -i 's|\(</table>\).*$|\1|' filtered.html
+# - remove everything before the first table of each day
 sed -i 's|^<div class="container"><div class="left">||g' filtered.html
-# - ... and only keep relevant lines (last line contains artefacts from newline introduction above)
+# - only keep lines that contain headlines (and first table of each day)
 grep "^<h1>" filtered.html > filtered.tmp
 mv filtered.tmp filtered.html
-# - remote table of team win/losses
-sed -i 's|<div class="right"><h1>TEAMS.*$||g' filtered.html
 
 # convert each line (table) into total table rows
 # cols:
