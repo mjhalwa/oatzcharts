@@ -65,4 +65,4 @@ export type ChartData = {
 //  import Profile from './components/profile';
 //  import chartdata from 'json!../data.json';
 // easier version: https://stackoverflow.com/a/52349546
-export let data : ChartData[] = require('./data.json').props.pageProps.groups;
+export let data : ChartData[] = require('./data.json');

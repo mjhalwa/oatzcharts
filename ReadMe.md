@@ -1,5 +1,8 @@
 # Charts for Stats of OATZ Rocket League Tuesdays
 
+[OATS Rocket League](https://www.oatz.net/rocketleague)
+[OATS Rocket League - All data](https://www.oatz.net/rocketleague/all)
+
 ## Requirements
 
 1. Linux OS or WSL to access `bash` commands like `sed`, `cat`, `echo`, ...
@@ -13,20 +16,23 @@
 
 ## Create Graphics
 
-1. update data from [OATS Rocket League](https://www.oatz.net/rocketleague/all)
+1. get all JSON data from [OATS Rocket League API](https://www.oatz.net/rocketleague/api/all)
 
     ``` bash
-    bash webscraper.sh
+    curl https://www.oatz.net/rocketleague/api/all | jq "." > data.json
+    ```
+
+2. create Excel-importable csv table from `data.json`
+
+    ``` bash
+    bash json2csv.sh
     ```
 
     creates
-    - `raw.html` HTML-Website as is
-    - `filtered.html` only relevant HTML elements
     - `data.csv` extracted stats in tabular format: `date | username | ...stats`
-    - `data_ger.csv` for opening with German MS Excel (','  comma)
-    - `data.json` (__kept__) extracted data in json format
+    - `data_ger.csv` for opening with German MS Excel (',' comma)
 
-2. import updated data in `data.xslx`
+3. open `data.csv` in Excel and copy data into first Tab of `data.xslx` (+ extend first column in this tab to the new table size)
 
 ## Proof of Concept
 
