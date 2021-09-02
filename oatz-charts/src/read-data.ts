@@ -9,7 +9,7 @@ export type MeasureData = {
   };
 }
 
-export type PlayerData = {
+type RawPlayerData = {
   rank: number;
   name: string;
   score: MeasureData;
@@ -18,6 +18,13 @@ export type PlayerData = {
   saves: MeasureData;
   shots: MeasureData;
   speed: MeasureData;
+  ranks_total_value: number;
+};
+
+export type PlayerData = {
+  rank: number;
+  name: string;
+  measures: {[key: string]: MeasureData};
   ranks_total_value: number;
 };
 
@@ -50,14 +57,20 @@ export type GameData = {
   }
 };
 
+type RawChartData = {
+  name: string;
+  id: string;
+  players: RawPlayerData[];
+  teams: TeamData[];
+  games: GameData[];
+};
+
 export type ChartData = {
-  content: {
-    name: string;
-    id: string;
-    players: PlayerData[];
-    teams: TeamData[];
-    games: GameData[];
-  };
+  name: string;
+  id: string;
+  players: PlayerData[];
+  teams: TeamData[];
+  games: GameData[];
 };
 
 // load json files
@@ -65,4 +78,29 @@ export type ChartData = {
 //  import Profile from './components/profile';
 //  import chartdata from 'json!../data.json';
 // easier version: https://stackoverflow.com/a/52349546
-export let data : ChartData[] = require('./data.json');
+const rawdata : RawChartData[] = require('./data.json');
+
+// convert RawPlayerData to PlayerData
+export const data: ChartData[] = rawdata.map((rawElem: RawChartData) => {
+  return {
+    name: rawElem.name,
+    id: rawElem.id,
+    players: rawElem.players.map((val: RawPlayerData) => {
+      return {
+        rank: val.rank,
+        name: val.name,
+        measures: {
+          score: val.score,
+          goals: val.goals,
+          assists: val.assists,
+          saves: val.saves,
+          shots: val.shots,
+          speed: val.speed
+        },
+        ranks_total_value: val.ranks_total_value
+      }
+    }),
+    teams: rawElem.teams,
+    games: rawElem.games
+  };
+});

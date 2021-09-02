@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
-import {data, ChartData} from './read-data';
-import {Radar} from 'react-chartjs-2';
+import {ChartExample} from './examples'
+import {data} from './read-data';
+import {calcStats} from './analysis';
+import {RLTRadar} from './RLTRadar';
 
 //let arr = [1,2,3];
 
 //const dataItems = Object.keys(data).map((val) => <li>{val}</li>);
-const dataItems = data.map((val, index) => <li>{index}: {val.content.name}</li>);
+const dataItems = data.map((val, index) => <li>{index}: {val.name}</li>);
+
+
+let stats = calcStats(data);
+
 
 type AppProps = {
 
@@ -25,52 +31,21 @@ class App extends React.Component<AppProps, AppStates> {
       <main className="app">
         <h2>Text example</h2>
         <p>hi</p>
-        <h2>Chart example</h2> 
-        <Radar
+        <h2>Radar example</h2>
+        <RLTRadar 
           data={
-            {
-              labels: [
-                'Eating',
-                'Drinking',
-                'Sleeping',
-                'Designing',
-                'Coding',
-                'Cycling',
-                'Running'
-              ],
-              datasets: [{
-                label: 'My First Dataset',
-                data: [65, 59, 90, 81, 56, 55, 40],
-                fill: true,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgb(255, 99, 132)',
-                pointBackgroundColor: 'rgb(255, 99, 132)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(255, 99, 132)'
-              }, {
-                label: 'My Second Dataset',
-                data: [28, 48, 40, 19, 96, 27, 100],
-                fill: true,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgb(54, 162, 235)',
-                pointBackgroundColor: 'rgb(54, 162, 235)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(54, 162, 235)'
-              }]
-            }
+            data[0].players.map( p => {
+              return {
+                player: p.name,
+                measures: Object.entries(p.measures).map( ([k, m]) => {return {name: k, value: m.avg.value};} )
+              };
+            })
           }
-          options={
-            {
-              elements: {
-                line: {
-                  borderWidth: 3
-                }
-              }
-            }
-          }
-        />
+          allData={data}
+          title={data[0].name}
+          />
+        <h2>Chart example</h2> 
+        <ChartExample />
         <h2>Data Example</h2>
         {Array(data.length).keys()}
         <ul>
@@ -80,6 +55,6 @@ class App extends React.Component<AppProps, AppStates> {
       </main>
     );
   }
-}
+};
 
 export default App;
