@@ -30,22 +30,26 @@ function getInitStats(measureKeys: string[]): PlayerStats {
 
 // TODO: add parameter condition (=callback function to return true/false wether or not to include in stats)
 export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
-  let stats: {[player: string]: PlayerStats } = {};
+  let stats: {[playerName: string]: PlayerStats } = {};
 
-  for ( const daystats of data ) {
-    for ( const player of daystats.players ) {
-      if ( ! ( player.name in stats ) ) {
-        // init player stats
-        const measureNames = Object.keys(data[0].players[0].measures)
-        stats[player.name] = getInitStats(measureNames);
+  const measureNames = Object.keys(data[0].players[0].measures)
+
+  for ( const dayData of data ) {
+    for ( const playerDayData of dayData.players ) {
+      const playerName = playerDayData.name;
+      if ( ! ( playerName in stats ) ) {
+        // init player stats 
+        // warning: we need a deep copy here!
+        // TODO: use lodash instead of JSON.parse(JSON.stringify()) here
+        stats[playerName] = JSON.parse(JSON.stringify(getInitStats(measureNames)));
       }
-      stats[player.name].dayCount += 1;
-      for ( const m in stats[player.name].measures ) {
+      stats[playerName].dayCount += 1;
+      for ( const m of measureNames ) {
         // increment stats of player to calculate sum
-        stats[player.name].measures[m].sum += player.measures[m].avg.value
+        stats[playerName].measures[m].sum += playerDayData.measures[m].avg.value
         // check for max
-        if (player.measures[m].avg.value > stats[player.name].measures[m].max) {
-          stats[player.name].measures[m].max = player.measures[m].avg.value;
+        if (playerDayData.measures[m].avg.value > stats[playerName].measures[m].max) {
+          stats[playerName].measures[m].max = playerDayData.measures[m].avg.value;
         }
       }
     }

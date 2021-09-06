@@ -47,12 +47,22 @@ type RLTRadarProps = {
 };
 
 type RLTRadarStates = {
-  maxes: {[measureName: string]: number}
+  maxes: {[measureName: string]: number};
 };
 
 export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
   state = {
-    maxes: getAllPlayerMaxStats(this.props.allData)
+    maxes: getAllPlayerMaxStats(this.props.allData),
+  }
+  getPlayerColor(playerName: string): string {
+    if ( playerName === "wiesl2" ) { return 'rgb(102, 255, 255)'; }
+    else if ( playerName === "Grent" ) { return 'rgb(146, 208, 80)'; }
+    else if ( playerName === "Ozumi" ) { return 'rgb(255, 192, 0)'; }
+    else if ( playerName === "Bergsalz" ) { return 'rgb(255, 0, 0)'; }
+    else if ( playerName === "DaPhysika" ) { return 'rgb(112, 48, 160)'; }
+    else {
+      return 'rgb(120,120,120)';
+    }
   }
   render() {
     return (
@@ -66,6 +76,9 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
               //data: d.measures.map(m => m.value),
               data: d.measures.map(m => m.value/this.state.maxes[m.name]),
               fill: false,
+              borderColor: this.getPlayerColor(d.player),
+              pointBackgroundColor: this.getPlayerColor(d.player),
+              pointBorderColor: '#fff',
             };
           }),
           /*
@@ -98,6 +111,11 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
           elements: {
             line: {
               borderWidth: 3
+            }
+          }, plugins: {
+            title: {
+              display: true,
+              text: this.props.title
             }
           }
         }
