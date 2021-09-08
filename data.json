@@ -1,5 +1,1993 @@
 [
   {
+    "name": "RLT-2021-09-07",
+    "id": "rlt-2021-09-07-suwf4aszhf",
+    "players": [
+      {
+        "rank": 1,
+        "name": "wiesl2",
+        "score": {
+          "total": {
+            "value": 9019,
+            "rank": 1
+          },
+          "avg": {
+            "value": 375.79166,
+            "rank": 1
+          }
+        },
+        "goals": {
+          "total": {
+            "value": 33,
+            "rank": 1
+          },
+          "avg": {
+            "value": 1.375,
+            "rank": 1
+          }
+        },
+        "assists": {
+          "total": {
+            "value": 10,
+            "rank": 1
+          },
+          "avg": {
+            "value": 0.41666666,
+            "rank": 1
+          }
+        },
+        "saves": {
+          "total": {
+            "value": 20,
+            "rank": 2
+          },
+          "avg": {
+            "value": 0.8333333,
+            "rank": 2
+          }
+        },
+        "shots": {
+          "total": {
+            "value": 68,
+            "rank": 1
+          },
+          "avg": {
+            "value": 2.8333333,
+            "rank": 1
+          }
+        },
+        "speed": {
+          "avg": {
+            "value": 61.9727,
+            "rank": 2
+          }
+        },
+        "ranks_total_value": 8
+      },
+      {
+        "rank": 2,
+        "name": "Grent",
+        "score": {
+          "total": {
+            "value": 8425,
+            "rank": 2
+          },
+          "avg": {
+            "value": 337,
+            "rank": 2
+          }
+        },
+        "goals": {
+          "total": {
+            "value": 21,
+            "rank": 2
+          },
+          "avg": {
+            "value": 0.84,
+            "rank": 2
+          }
+        },
+        "assists": {
+          "total": {
+            "value": 10,
+            "rank": 1
+          },
+          "avg": {
+            "value": 0.4,
+            "rank": 2
+          }
+        },
+        "saves": {
+          "total": {
+            "value": 38,
+            "rank": 1
+          },
+          "avg": {
+            "value": 1.52,
+            "rank": 1
+          }
+        },
+        "shots": {
+          "total": {
+            "value": 59,
+            "rank": 2
+          },
+          "avg": {
+            "value": 2.36,
+            "rank": 2
+          }
+        },
+        "speed": {
+          "avg": {
+            "value": 68.94632,
+            "rank": 1
+          }
+        },
+        "ranks_total_value": 10
+      },
+      {
+        "rank": 3,
+        "name": "Bergsalz",
+        "score": {
+          "total": {
+            "value": 2093,
+            "rank": 3
+          },
+          "avg": {
+            "value": 149.5,
+            "rank": 3
+          }
+        },
+        "goals": {
+          "total": {
+            "value": 3,
+            "rank": 4
+          },
+          "avg": {
+            "value": 0.21428572,
+            "rank": 4
+          }
+        },
+        "assists": {
+          "total": {
+            "value": 5,
+            "rank": 3
+          },
+          "avg": {
+            "value": 0.35714287,
+            "rank": 3
+          }
+        },
+        "saves": {
+          "total": {
+            "value": 9,
+            "rank": 3
+          },
+          "avg": {
+            "value": 0.64285713,
+            "rank": 3
+          }
+        },
+        "shots": {
+          "total": {
+            "value": 9,
+            "rank": 4
+          },
+          "avg": {
+            "value": 0.64285713,
+            "rank": 4
+          }
+        },
+        "speed": {
+          "avg": {
+            "value": 56.64438,
+            "rank": 4
+          }
+        },
+        "ranks_total_value": 21
+      },
+      {
+        "rank": 3,
+        "name": "DaPhysika",
+        "score": {
+          "total": {
+            "value": 1735,
+            "rank": 4
+          },
+          "avg": {
+            "value": 115.666664,
+            "rank": 4
+          }
+        },
+        "goals": {
+          "total": {
+            "value": 4,
+            "rank": 3
+          },
+          "avg": {
+            "value": 0.26666668,
+            "rank": 3
+          }
+        },
+        "assists": {
+          "total": {
+            "value": 2,
+            "rank": 4
+          },
+          "avg": {
+            "value": 0.13333334,
+            "rank": 4
+          }
+        },
+        "saves": {
+          "total": {
+            "value": 3,
+            "rank": 4
+          },
+          "avg": {
+            "value": 0.2,
+            "rank": 4
+          }
+        },
+        "shots": {
+          "total": {
+            "value": 13,
+            "rank": 3
+          },
+          "avg": {
+            "value": 0.8666667,
+            "rank": 3
+          }
+        },
+        "speed": {
+          "avg": {
+            "value": 60.32055,
+            "rank": 3
+          }
+        },
+        "ranks_total_value": 21
+      }
+    ],
+    "teams": [
+      {
+        "name": "Grent wiesl2",
+        "wins": 4,
+        "losses": 1,
+        "perc": 80
+      },
+      {
+        "name": "Bergsalz Grent wiesl2",
+        "wins": 3,
+        "losses": 2,
+        "perc": 60
+      },
+      {
+        "name": "Bergsalz DaPhysika Grent wiesl2",
+        "wins": 4,
+        "losses": 5,
+        "perc": 44.444443
+      },
+      {
+        "name": "DaPhysika Grent wiesl2",
+        "wins": 2,
+        "losses": 3,
+        "perc": 40
+      }
+    ],
+    "games": [
+      {
+        "id": "3f59628a-043e-4042-95e9-f0748e42987b",
+        "created": "2021-09-07T23:57:19+02:00",
+        "blue": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "NecroBull",
+              "score": 707,
+              "goals": 2,
+              "assists": 2,
+              "saves": 1,
+              "shots": 5
+            },
+            {
+              "name": "1 ",
+              "score": 669,
+              "goals": 2,
+              "assists": 1,
+              "saves": 2,
+              "shots": 3
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 563,
+              "goals": 1,
+              "assists": 2,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "wiesl2",
+              "score": 460,
+              "goals": 2,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "61694190-8df5-443e-b3c8-b193d15d6ee2",
+        "created": "2021-09-07T23:48:26+02:00",
+        "blue": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 569,
+              "goals": 3,
+              "assists": 0,
+              "saves": 2,
+              "shots": 4
+            },
+            {
+              "name": "wiesl2",
+              "score": 430,
+              "goals": 1,
+              "assists": 2,
+              "saves": 0,
+              "shots": 3
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "Xx_MAXI_PRO_xX",
+              "score": 544,
+              "goals": 2,
+              "assists": 1,
+              "saves": 0,
+              "shots": 5
+            },
+            {
+              "name": "Mano_celestialV4",
+              "score": 366,
+              "goals": 1,
+              "assists": 2,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "821caebc-f726-4872-86d4-63426a052c76",
+        "created": "2021-09-07T23:40:20+02:00",
+        "blue": {
+          "goals": 5,
+          "players": [
+            {
+              "name": "NeMeRatePas8475",
+              "score": 613,
+              "goals": 2,
+              "assists": 3,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "Casquette-Neuf",
+              "score": 525,
+              "goals": 3,
+              "assists": 0,
+              "saves": 1,
+              "shots": 3
+            }
+          ]
+        },
+        "orange": {
+          "goals": 6,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 791,
+              "goals": 5,
+              "assists": 1,
+              "saves": 0,
+              "shots": 6
+            },
+            {
+              "name": "Grent",
+              "score": 297,
+              "goals": 1,
+              "assists": 1,
+              "saves": 0,
+              "shots": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "1be29412-f4cb-4133-add4-fcdf4a905c70",
+        "created": "2021-09-07T23:30:59+02:00",
+        "blue": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 519,
+              "goals": 3,
+              "assists": 0,
+              "saves": 1,
+              "shots": 4
+            },
+            {
+              "name": "Grent",
+              "score": 446,
+              "goals": 1,
+              "assists": 2,
+              "saves": 1,
+              "shots": 4
+            }
+          ]
+        },
+        "orange": {
+          "goals": 0,
+          "players": [
+            {
+              "name": "By_WaHad",
+              "score": 458,
+              "goals": 0,
+              "assists": 0,
+              "saves": 3,
+              "shots": 3
+            },
+            {
+              "name": "SkYzZeR_03",
+              "score": 136,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "bf827c89-0505-4e8b-8de5-0240d3cde04a",
+        "created": "2021-09-07T23:25:16+02:00",
+        "blue": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "Ramiz_Ali16",
+              "score": 383,
+              "goals": 1,
+              "assists": 0,
+              "saves": 3,
+              "shots": 4
+            },
+            {
+              "name": "Esa11Sharif",
+              "score": 92,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 5,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 427,
+              "goals": 3,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "wiesl2",
+              "score": 425,
+              "goals": 2,
+              "assists": 0,
+              "saves": 1,
+              "shots": 5
+            }
+          ]
+        }
+      },
+      {
+        "id": "a78a1810-6d11-401d-923d-1642102c44c8",
+        "created": "2021-09-07T23:16:22+02:00",
+        "blue": {
+          "goals": 0,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 256,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "wiesl2",
+              "score": 184,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "DaPhysika",
+              "score": 98,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            }
+          ]
+        },
+        "orange": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "Edosmas",
+              "score": 419,
+              "goals": 1,
+              "assists": 0,
+              "saves": 2,
+              "shots": 2
+            },
+            {
+              "name": "Bob Klister",
+              "score": 291,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "Sausage",
+              "score": 173,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "7a7ac7c6-9584-4adb-8785-bb73dfcf92dc",
+        "created": "2021-09-07T23:09:10+02:00",
+        "blue": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 452,
+              "goals": 2,
+              "assists": 1,
+              "saves": 2,
+              "shots": 5
+            },
+            {
+              "name": "Grent",
+              "score": 412,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 5
+            },
+            {
+              "name": "DaPhysika",
+              "score": 220,
+              "goals": 1,
+              "assists": 1,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "CheckMyDeath",
+              "score": 662,
+              "goals": 3,
+              "assists": 0,
+              "saves": 2,
+              "shots": 4
+            },
+            {
+              "name": "Borussen_Basti91",
+              "score": 300,
+              "goals": 0,
+              "assists": 1,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "ziSlayerz",
+              "score": 202,
+              "goals": 0,
+              "assists": 1,
+              "saves": 1,
+              "shots": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "ea63e2e2-f73a-4822-a48c-9d26d0859c44",
+        "created": "2021-09-07T22:55:23+02:00",
+        "blue": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 476,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Grent",
+              "score": 306,
+              "goals": 1,
+              "assists": 0,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "DaPhysika",
+              "score": 214,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        },
+        "orange": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "brownie lul",
+              "score": 297,
+              "goals": 1,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Manuelunion",
+              "score": 264,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "Statch06",
+              "score": 194,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Junker",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "e62f955b-b0da-4270-b5e7-e24e216477bb",
+        "created": "2021-09-07T22:48:23+02:00",
+        "blue": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 382,
+              "goals": 1,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "Grent",
+              "score": 180,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "DaPhysika",
+              "score": 90,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "Arguably Adopted",
+              "score": 469,
+              "goals": 2,
+              "assists": 0,
+              "saves": 1,
+              "shots": 4
+            },
+            {
+              "name": "Syphonfire",
+              "score": 387,
+              "goals": 1,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "SirJobs",
+              "score": 120,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "1895a469-c01f-4d0a-b689-a36f18ff0960",
+        "created": "2021-09-07T22:41:27+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 302,
+              "goals": 0,
+              "assists": 1,
+              "saves": 1,
+              "shots": 0
+            },
+            {
+              "name": "Grent",
+              "score": 283,
+              "goals": 1,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "DaPhysika",
+              "score": 238,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "Arguably Adopted",
+              "score": 456,
+              "goals": 2,
+              "assists": 0,
+              "saves": 0,
+              "shots": 5
+            },
+            {
+              "name": "Syphonfire",
+              "score": 294,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "SirJobs",
+              "score": 218,
+              "goals": 0,
+              "assists": 2,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "e6b78a85-8823-45c7-9d6f-eca869cce21f",
+        "created": "2021-09-07T22:33:33+02:00",
+        "blue": {
+          "goals": 0,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 135,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "wiesl2",
+              "score": 122,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "DaPhysika",
+              "score": 92,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "Bergsalz",
+              "score": 52,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "[1stBdC] Sgt.Mor Cortez",
+              "score": 579,
+              "goals": 2,
+              "assists": 1,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "M Y E R S",
+              "score": 282,
+              "goals": 1,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Odenatus",
+              "score": 230,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "NunoIII",
+              "score": 24,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "61d5ef40-55e1-412a-9f2f-b0924e6b92ad",
+        "created": "2021-09-07T22:26:53+02:00",
+        "blue": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "M Y E R S",
+              "score": 567,
+              "goals": 3,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "Odenatus",
+              "score": 196,
+              "goals": 0,
+              "assists": 2,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "[1stBdC] Sgt.Mor Cortez",
+              "score": 185,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "NunoIII",
+              "score": 18,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 284,
+              "goals": 0,
+              "assists": 1,
+              "saves": 2,
+              "shots": 0
+            },
+            {
+              "name": "wiesl2",
+              "score": 255,
+              "goals": 1,
+              "assists": 0,
+              "saves": 1,
+              "shots": 3
+            },
+            {
+              "name": "DaPhysika",
+              "score": 166,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "Bergsalz",
+              "score": 109,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "1792d7ab-813a-4023-b289-6fdc17f15970",
+        "created": "2021-09-07T22:19:07+02:00",
+        "blue": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "[1stBdC] Sgt.Mor Cortez",
+              "score": 329,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "M Y E R S",
+              "score": 306,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "Odenatus",
+              "score": 204,
+              "goals": 0,
+              "assists": 2,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "NunoIII",
+              "score": 142,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 258,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "Grent",
+              "score": 172,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 0
+            },
+            {
+              "name": "Bergsalz",
+              "score": 40,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "DaPhysika",
+              "score": 36,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "c4bf31ad-7cc6-4b91-8890-6709e241492c",
+        "created": "2021-09-07T22:12:00+02:00",
+        "blue": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 351,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "Grent",
+              "score": 282,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "Bergsalz",
+              "score": 258,
+              "goals": 1,
+              "assists": 1,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "DaPhysika",
+              "score": 124,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "M Y E R S",
+              "score": 288,
+              "goals": 1,
+              "assists": 0,
+              "saves": 1,
+              "shots": 5
+            },
+            {
+              "name": "[1stBdC] Sgt.Mor Cortez",
+              "score": 274,
+              "goals": 0,
+              "assists": 1,
+              "saves": 1,
+              "shots": 0
+            },
+            {
+              "name": "Odenatus",
+              "score": 204,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            },
+            {
+              "name": "NunoIII",
+              "score": 12,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "c67b8cb1-f4b1-41d0-9ea6-d6c796a1ffa6",
+        "created": "2021-09-07T22:04:28+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 369,
+              "goals": 1,
+              "assists": 0,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "wiesl2",
+              "score": 246,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 3
+            },
+            {
+              "name": "DaPhysika",
+              "score": 42,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Bergsalz",
+              "score": 42,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 0,
+          "players": [
+            {
+              "name": "Clara",
+              "score": 190,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 0
+            },
+            {
+              "name": "MathisLeTurbo",
+              "score": 170,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "Haliltaha23",
+              "score": 42,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "liquadso",
+              "score": 14,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "Rainmaker",
+              "score": 6,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "20Luc4s05",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Fury",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "380d279f-9769-4bc6-a45b-393acaf3cc38",
+        "created": "2021-09-07T21:57:22+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 342,
+              "goals": 2,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "wiesl2",
+              "score": 212,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "Bergsalz",
+              "score": 160,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "DaPhysika",
+              "score": 153,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 0,
+          "players": [
+            {
+              "name": "20Luc4s05",
+              "score": 166,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "Benesen_05",
+              "score": 122,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "SantaCruzV10",
+              "score": 58,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "chemischer_oli",
+              "score": 52,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Storm",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "4cba966e-94c3-4636-aa52-447b410def89",
+        "created": "2021-09-07T21:48:52+02:00",
+        "blue": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 511,
+              "goals": 1,
+              "assists": 0,
+              "saves": 4,
+              "shots": 2
+            },
+            {
+              "name": "Leskers_-",
+              "score": 148,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "DaPhysika",
+              "score": 68,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "Hound",
+              "score": 4,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "teox02_",
+              "score": 366,
+              "goals": 2,
+              "assists": 0,
+              "saves": 0,
+              "shots": 5
+            },
+            {
+              "name": "Pika",
+              "score": 219,
+              "goals": 0,
+              "assists": 1,
+              "saves": 1,
+              "shots": 0
+            },
+            {
+              "name": "ZGoldenKnightZ",
+              "score": 78,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 3
+            },
+            {
+              "name": "Slider",
+              "score": 24,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Iceman",
+              "score": 2,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Gerwin",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "MattiMilu05",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Devvey4547",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            },
+            {
+              "name": "Edd1e794",
+              "score": 0,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "cc24d6b0-8057-4cd2-bfdd-a1aa2b90424f",
+        "created": "2021-09-07T21:41:03+02:00",
+        "blue": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "Grent",
+              "score": 398,
+              "goals": 1,
+              "assists": 0,
+              "saves": 3,
+              "shots": 1
+            },
+            {
+              "name": "wiesl2",
+              "score": 277,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 2
+            },
+            {
+              "name": "Bergsalz",
+              "score": 262,
+              "goals": 0,
+              "assists": 0,
+              "saves": 3,
+              "shots": 0
+            },
+            {
+              "name": "DaPhysika",
+              "score": 104,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 1
+            }
+          ]
+        },
+        "orange": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "VegetaLaScamp",
+              "score": 374,
+              "goals": 1,
+              "assists": 1,
+              "saves": 2,
+              "shots": 4
+            },
+            {
+              "name": "ZatorLaScampia",
+              "score": 352,
+              "goals": 0,
+              "assists": 2,
+              "saves": 1,
+              "shots": 4
+            },
+            {
+              "name": "VickyPlatz",
+              "score": 262,
+              "goals": 2,
+              "assists": 0,
+              "saves": 0,
+              "shots": 3
+            },
+            {
+              "name": "Zorder_57",
+              "score": 212,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "1d145976-7d73-4658-9b80-89f517cafbc3",
+        "created": "2021-09-07T21:33:39+02:00",
+        "blue": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 547,
+              "goals": 3,
+              "assists": 0,
+              "saves": 1,
+              "shots": 5
+            },
+            {
+              "name": "Grent",
+              "score": 253,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 3
+            },
+            {
+              "name": "Bergsalz",
+              "score": 114,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 1
+            },
+            {
+              "name": "DaPhysika",
+              "score": 48,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        },
+        "orange": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "ZatorLaScampia",
+              "score": 449,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Zorder_57",
+              "score": 302,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "VegetaLaScamp",
+              "score": 202,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "VickyPlatz",
+              "score": 114,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "4e034eca-a0d4-41a0-b657-c77e741bcf58",
+        "created": "2021-09-07T21:25:59+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 454,
+              "goals": 2,
+              "assists": 0,
+              "saves": 2,
+              "shots": 2
+            },
+            {
+              "name": "Grent",
+              "score": 378,
+              "goals": 0,
+              "assists": 1,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "Bergsalz",
+              "score": 166,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "DaPhysika",
+              "score": 42,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "Goku",
+              "score": 506,
+              "goals": 2,
+              "assists": 0,
+              "saves": 1,
+              "shots": 5
+            },
+            {
+              "name": "Wunderwaffel",
+              "score": 402,
+              "goals": 1,
+              "assists": 2,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "DHT",
+              "score": 112,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 3
+            },
+            {
+              "name": "smoowvy",
+              "score": 80,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            }
+          ]
+        }
+      },
+      {
+        "id": "ec83b860-fff5-483b-a025-4ef11750add9",
+        "created": "2021-09-07T21:13:43+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 456,
+              "goals": 1,
+              "assists": 1,
+              "saves": 2,
+              "shots": 2
+            },
+            {
+              "name": "Grent",
+              "score": 284,
+              "goals": 1,
+              "assists": 1,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "Bergsalz",
+              "score": 116,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 0,
+          "players": [
+            {
+              "name": "Kalus_99",
+              "score": 170,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            },
+            {
+              "name": "LyKaN kp",
+              "score": 160,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "Lunatic",
+              "score": 124,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "0fc28adf-5adf-426e-97e3-860c2b6ae0de",
+        "created": "2021-09-07T21:07:18+02:00",
+        "blue": {
+          "goals": 3,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 467,
+              "goals": 3,
+              "assists": 0,
+              "saves": 0,
+              "shots": 5
+            },
+            {
+              "name": "Grent",
+              "score": 347,
+              "goals": 0,
+              "assists": 1,
+              "saves": 3,
+              "shots": 3
+            },
+            {
+              "name": "Bergsalz",
+              "score": 192,
+              "goals": 0,
+              "assists": 1,
+              "saves": 1,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 5,
+          "players": [
+            {
+              "name": "LaRoge",
+              "score": 484,
+              "goals": 2,
+              "assists": 1,
+              "saves": 2,
+              "shots": 5
+            },
+            {
+              "name": "MrMute",
+              "score": 481,
+              "goals": 1,
+              "assists": 1,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "La Sainte Bicyclette",
+              "score": 404,
+              "goals": 2,
+              "assists": 1,
+              "saves": 0,
+              "shots": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "ddfc876d-bd65-408d-bd0b-0b8987fa0583",
+        "created": "2021-09-07T20:58:52+02:00",
+        "blue": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 286,
+              "goals": 1,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Grent",
+              "score": 254,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "Bergsalz",
+              "score": 80,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 5,
+          "players": [
+            {
+              "name": "Bryggjevs",
+              "score": 523,
+              "goals": 1,
+              "assists": 3,
+              "saves": 0,
+              "shots": 4
+            },
+            {
+              "name": "johnny javel",
+              "score": 431,
+              "goals": 2,
+              "assists": 1,
+              "saves": 1,
+              "shots": 4
+            },
+            {
+              "name": "LuddeLudo4724",
+              "score": 396,
+              "goals": 2,
+              "assists": 0,
+              "saves": 1,
+              "shots": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "a1052ca4-18a6-4a36-ad14-db02f6789657",
+        "created": "2021-09-07T20:51:14+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "[>--] koseto_MG",
+              "score": 392,
+              "goals": 2,
+              "assists": 0,
+              "saves": 1,
+              "shots": 1
+            },
+            {
+              "name": "Kaa",
+              "score": 220,
+              "goals": 0,
+              "assists": 1,
+              "saves": 1,
+              "shots": 0
+            },
+            {
+              "name": "[>--] Artus",
+              "score": 98,
+              "goals": 0,
+              "assists": 0,
+              "saves": 0,
+              "shots": 3
+            }
+          ]
+        },
+        "orange": {
+          "goals": 4,
+          "players": [
+            {
+              "name": "wiesl2",
+              "score": 455,
+              "goals": 1,
+              "assists": 1,
+              "saves": 2,
+              "shots": 1
+            },
+            {
+              "name": "Grent",
+              "score": 420,
+              "goals": 2,
+              "assists": 0,
+              "saves": 1,
+              "shots": 4
+            },
+            {
+              "name": "Bergsalz",
+              "score": 212,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "ec8fcd0c-97b4-4bac-b714-6ec57c8548ae",
+        "created": "2021-09-07T20:43:07+02:00",
+        "blue": {
+          "goals": 2,
+          "players": [
+            {
+              "name": "Bergsalz",
+              "score": 290,
+              "goals": 1,
+              "assists": 1,
+              "saves": 1,
+              "shots": 2
+            },
+            {
+              "name": "Grent",
+              "score": 257,
+              "goals": 0,
+              "assists": 0,
+              "saves": 2,
+              "shots": 2
+            },
+            {
+              "name": "wiesl2",
+              "score": 212,
+              "goals": 1,
+              "assists": 0,
+              "saves": 0,
+              "shots": 0
+            }
+          ]
+        },
+        "orange": {
+          "goals": 1,
+          "players": [
+            {
+              "name": "Gcode2557",
+              "score": 382,
+              "goals": 1,
+              "assists": 0,
+              "saves": 2,
+              "shots": 3
+            },
+            {
+              "name": "CosmicTalon",
+              "score": 221,
+              "goals": 0,
+              "assists": 0,
+              "saves": 1,
+              "shots": 0
+            },
+            {
+              "name": "p_7Jsg",
+              "score": 128,
+              "goals": 0,
+              "assists": 1,
+              "saves": 0,
+              "shots": 1
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
     "name": "RLT-2021-08-31",
     "id": "rlt-2021-08-31-8spduhq6vk",
     "players": [
