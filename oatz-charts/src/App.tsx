@@ -1,57 +1,57 @@
-import React from 'react';
+import React, { SelectHTMLAttributes } from 'react';
 import './App.css';
-import {ChartExample} from './examples'
+// import {ChartExample} from './examples'
 import {data} from './read-data';
-import {calcStats} from './analysis';
+// import {calcStats} from './analysis';
 import {RLTRadar} from './RLTRadar';
-
-//let arr = [1,2,3];
-
-//const dataItems = Object.keys(data).map((val) => <li>{val}</li>);
-const dataItems = data.map((val, index) => <li>{index}: {val.name}</li>);
-
-
-let stats = calcStats(data);
-
 
 type AppProps = {
 
 };
 
 type AppStates = {
-
+  selectedDayIndex: number;
 };
 
 class App extends React.Component<AppProps, AppStates> {
   state = {
-
+    selectedDayIndex: 0 //!< latest day
+  }
+  // see https://reactjs.org/docs/forms.html#the-select-tag
+  handleDaySelectionChange(event: React.ChangeEvent<HTMLSelectElement>): void {
+    this.setState( {selectedDayIndex: Number(event.target.value)} );
   }
   render() {
     return (
       <main className="app">
-        <h2>Text example</h2>
-        <p>hi</p>
-        <h2>Radar example</h2>
-        <RLTRadar 
-          data={
-            data[0].players.map( p => {
-              return {
-                player: p.name,
-                measures: Object.entries(p.measures).map( ([k, m]) => {return {name: k, value: m.avg.value};} )
-              };
-            })
-          }
-          allData={data}
-          title={data[0].name}
-          />
-        <h2>Chart example</h2> 
-        <ChartExample />
-        <h2>Data Example</h2>
-        {Array(data.length).keys()}
-        <ul>
-          {dataItems}
-        </ul>
-        <p>there</p>
+        <h1>OATZ Charts</h1>
+
+        <form>
+          <label>Datum:</label>
+          <select value={this.state.selectedDayIndex} onChange={(event) => {this.handleDaySelectionChange(event);}}>
+            {data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
+          </select>
+        </form>
+
+        <section>
+          <h2>Player Comparison Radar</h2>
+          <RLTRadar 
+            data={
+              data[this.state.selectedDayIndex].players.map( p => {
+                return {
+                  player: p.name,
+                  measures: Object.entries(p.measures).map( ([k, m]) => {return {name: k, value: m.avg.value};} )
+                };
+              })
+            }
+            allData={data}
+            title={data[this.state.selectedDayIndex].name}
+            />
+        </section>
+
+        <section>
+          <h2>Each Player Performance Radar</h2>
+        </section>
       </main>
     );
   }
