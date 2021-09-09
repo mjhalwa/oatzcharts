@@ -1,4 +1,7 @@
 import {ChartData} from './read-data';
+// see https://github.com/lodash/lodash/issues/3192
+//import cloneDeep from 'lodash/cloneDeep'
+//const cloneDeep = require('lodash/cloneDeep')
 
 export type MeasureSummary = {
   sum: number;
@@ -41,6 +44,9 @@ export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
         // init player stats 
         // warning: we need a deep copy here!
         // TODO: use lodash instead of JSON.parse(JSON.stringify()) here
+        /* tried, but not actually deepcloning... 
+        stats[playerName] = cloneDeep(getInitStats(measureNames));
+        */
         stats[playerName] = JSON.parse(JSON.stringify(getInitStats(measureNames)));
       }
       stats[playerName].dayCount += 1;
