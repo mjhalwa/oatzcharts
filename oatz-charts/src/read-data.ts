@@ -57,7 +57,7 @@ export type GameData = {
   }
 };
 
-type RawChartData = {
+export type RawChartData = {
   name: string;
   id: string;
   players: RawPlayerData[];
@@ -81,26 +81,30 @@ export type ChartData = {
 const rawdata : RawChartData[] = require('./data.json');
 
 // convert RawPlayerData to PlayerData
-export const data: ChartData[] = rawdata.map((rawElem: RawChartData) => {
-  return {
-    name: rawElem.name,
-    id: rawElem.id,
-    players: rawElem.players.map((val: RawPlayerData) => {
-      return {
-        rank: val.rank,
-        name: val.name,
-        measures: {
-          score: val.score,
-          goals: val.goals,
-          assists: val.assists,
-          saves: val.saves,
-          shots: val.shots,
-          speed: val.speed
-        },
-        ranks_total_value: val.ranks_total_value
-      }
-    }),
-    teams: rawElem.teams,
-    games: rawElem.games
-  };
-});
+export function fromRawData(rawData: RawChartData[]): ChartData[] {
+  return rawdata.map((rawElem: RawChartData) => {
+    return {
+      name: rawElem.name,
+      id: rawElem.id,
+      players: rawElem.players.map((val: RawPlayerData) => {
+        return {
+          rank: val.rank,
+          name: val.name,
+          measures: {
+            score: val.score,
+            goals: val.goals,
+            assists: val.assists,
+            saves: val.saves,
+            shots: val.shots,
+            speed: val.speed
+          },
+          ranks_total_value: val.ranks_total_value
+        }
+      }),
+      teams: rawElem.teams,
+      games: rawElem.games
+    };
+  });
+}
+
+export const data: ChartData[] = fromRawData(rawdata);
