@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/oatzcharts/static/css/main.832f6404.chunk.css",
-    "main.js": "/oatzcharts/static/js/main.f3310398.chunk.js",
-    "main.js.map": "/oatzcharts/static/js/main.f3310398.chunk.js.map",
+    "main.js": "/oatzcharts/static/js/main.4363f923.chunk.js",
+    "main.js.map": "/oatzcharts/static/js/main.4363f923.chunk.js.map",
     "runtime-main.js": "/oatzcharts/static/js/runtime-main.136ac8ae.js",
     "runtime-main.js.map": "/oatzcharts/static/js/runtime-main.136ac8ae.js.map",
     "static/js/2.4123fd2c.chunk.js": "/oatzcharts/static/js/2.4123fd2c.chunk.js",
@@ -10,12 +10,12 @@
     "index.html": "/oatzcharts/index.html",
     "static/css/main.832f6404.chunk.css.map": "/oatzcharts/static/css/main.832f6404.chunk.css.map",
     "static/js/2.4123fd2c.chunk.js.LICENSE.txt": "/oatzcharts/static/js/2.4123fd2c.chunk.js.LICENSE.txt",
-    "static/js/main.f3310398.chunk.js.LICENSE.txt": "/oatzcharts/static/js/main.f3310398.chunk.js.LICENSE.txt"
+    "static/js/main.4363f923.chunk.js.LICENSE.txt": "/oatzcharts/static/js/main.4363f923.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.136ac8ae.js",
     "static/js/2.4123fd2c.chunk.js",
     "static/css/main.832f6404.chunk.css",
-    "static/js/main.f3310398.chunk.js"
+    "static/js/main.4363f923.chunk.js"
   ]
 }
