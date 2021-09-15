@@ -5,6 +5,9 @@ import {data as offlineData, ChartData, RawChartData, fromRawData} from './read-
 // import {calcStats} from './analysis';
 import {RLTRadar} from './RLTRadar';
 
+//const domain = 'https://www.oatz.net';
+const domain = 'http://localhost:9837';
+
 type AppProps = {
 
 };
@@ -24,7 +27,7 @@ class App extends React.Component<AppProps, AppStates> {
     errorMessage: ""
   }
   componentDidMount() {
-    fetch('https://www.oatz.net/rocketleague/api/all')
+    fetch(`${domain}/rocketleague/api/all`)
       .then(res => { return res.json(); })
       .then(
         (result: RawChartData[]) => {

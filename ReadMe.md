@@ -43,3 +43,11 @@
 ### 27.7.2021
 
 ![Spider-Charts 27.7.2021](./img/spider-2021_07_27.png)
+
+## dev-server
+
+run dev server on each `npm start`, see [stackoverflow](https://stackoverflow.com/questions/37078968/how-to-specify-the-path-of-package-json-to-npm)
+
+``` bash
+npm --prefix /path/to/project run build
+```
