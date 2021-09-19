@@ -78,9 +78,6 @@ class App extends React.Component<AppProps, AppStates> {
         <main className="app">
           { (this.state.errorMessage !== "") && <div className="error">verwende offline Daten ({this.state.errorMessage})</div> }
           <h1>[OATZ] Charts</h1>
-          <p>
-            { domain }
-          </p>
 
           <form>
             <label>Datum:</label>
