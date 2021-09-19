@@ -1,7 +1,10 @@
 # Charts for Stats of OATZ Rocket League Tuesdays
 
 [OATS Rocket League](https://www.oatz.net/rocketleague)
+
 [OATS Rocket League - All data](https://www.oatz.net/rocketleague/all)
+
+[Github Pages](https://mjhalwa.github.io/oatzcharts/)
 
 ## Requirements
 
