@@ -78,11 +78,11 @@ export type ChartData = {
 //  import Profile from './components/profile';
 //  import chartdata from 'json!../data.json';
 // easier version: https://stackoverflow.com/a/52349546
-const rawdata : RawChartData[] = require('./data.json');
+const offlineRawData : RawChartData[] = require('./data.json');
 
 // convert RawPlayerData to PlayerData
 export function fromRawData(rawData: RawChartData[]): ChartData[] {
-  return rawdata.map((rawElem: RawChartData) => {
+  return rawData.map((rawElem: RawChartData) => {
     return {
       name: rawElem.name,
       id: rawElem.id,
@@ -107,4 +107,4 @@ export function fromRawData(rawData: RawChartData[]): ChartData[] {
   });
 }
 
-export const data: ChartData[] = fromRawData(rawdata);
+export const data: ChartData[] = fromRawData(offlineRawData);
