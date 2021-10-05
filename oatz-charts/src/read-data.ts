@@ -11,6 +11,7 @@ export type MeasureData = {
 
 type RawPlayerData = {
   rank: number;
+  games: number;
   name: string;
   score: MeasureData;
   goals: MeasureData;
@@ -23,6 +24,7 @@ type RawPlayerData = {
 
 export type PlayerData = {
   rank: number;
+  games: number;
   name: string;
   measures: {[key: string]: MeasureData};
   ranks_total_value: number;
@@ -60,6 +62,7 @@ export type GameData = {
 export type RawChartData = {
   name: string;
   id: string;
+  date: string;
   players: RawPlayerData[];
   teams: TeamData[];
   games: GameData[];
@@ -68,6 +71,7 @@ export type RawChartData = {
 export type ChartData = {
   name: string;
   id: string;
+  date: string;
   players: PlayerData[];
   teams: TeamData[];
   games: GameData[];
@@ -86,9 +90,11 @@ export function fromRawData(rawData: RawChartData[]): ChartData[] {
     return {
       name: rawElem.name,
       id: rawElem.id,
+      date: rawElem.date,
       players: rawElem.players.map((val: RawPlayerData) => {
         return {
           rank: val.rank,
+          games: val.games,
           name: val.name,
           measures: {
             score: val.score,
