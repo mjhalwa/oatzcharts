@@ -22,6 +22,7 @@ type AppStates = {
   loading: boolean;
   data: ChartData[];
   errorMessage: string;
+  PlayerComparison_withMinAndMax: boolean;
 };
 
 class App extends React.Component<AppProps, AppStates> {
@@ -29,7 +30,8 @@ class App extends React.Component<AppProps, AppStates> {
     selectedDayIndex: 0, //!< latest day
     loading: true,
     data: offlineData,
-    errorMessage: ""
+    errorMessage: "",
+    PlayerComparison_withMinAndMax: true
   }
   componentDidMount() {
     fetch(`${domain}/rocketleague/api/all`)
@@ -66,6 +68,9 @@ class App extends React.Component<AppProps, AppStates> {
   handleDaySelectionChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState( {selectedDayIndex: Number(event.target.value)} );
   }
+  handlePlayerComparison_withMinAndMax_InputChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    this.setState({PlayerComparison_withMinAndMax: event.target.checked})
+  }
   render() {
     if (this.state.loading) {
       return (
@@ -88,6 +93,15 @@ class App extends React.Component<AppProps, AppStates> {
 
           <section>
             <h2>Player Comparison Radar</h2>
+            <label>
+              relativ zu  min UND max (sonst nur max)
+              <input
+                name="withMinAndMax"
+                type="checkbox"
+                checked={this.state.PlayerComparison_withMinAndMax}
+                onChange={(event) => {this.handlePlayerComparison_withMinAndMax_InputChange(event);}}
+              />
+            </label>
             <RLTRadar 
               data={
                 this.state.data[this.state.selectedDayIndex].players.map( p => {
@@ -99,6 +113,7 @@ class App extends React.Component<AppProps, AppStates> {
               }
               allData={this.state.data}
               title={this.state.data[this.state.selectedDayIndex].name}
+              relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
               />
           </section>
 

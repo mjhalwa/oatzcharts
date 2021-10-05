@@ -1,7 +1,7 @@
 import React from 'react';
 import {Radar} from 'react-chartjs-2';
 import {ChartData} from './read-data';
-import {getAllPlayerMaxStats} from './analysis';
+import {getAllPlayerLimitStats, Limits} from './analysis';
 
 
 /* test
@@ -44,15 +44,16 @@ type RLTRadarProps = {
   data: InputData[];
   allData: ChartData[];
   title: string;
+  relToMinAndMax: boolean;
 };
 
 type RLTRadarStates = {
-  maxes: {[measureName: string]: number};
+  allStatsLimits: {[measureName: string]: Limits};
 };
 
 export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
   state = {
-    maxes: getAllPlayerMaxStats(this.props.allData),
+    allStatsLimits: getAllPlayerLimitStats(this.props.allData),
   }
   getPlayerColor(playerName: string): string {
     if ( playerName === "wiesl2" ) { return 'rgb(102, 255, 255)'; }
@@ -74,7 +75,13 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
             return {
               label: d.player,
               //data: d.measures.map(m => m.value),
-              data: d.measures.map(m => m.value/this.state.maxes[m.name]),
+              data: this.props.relToMinAndMax
+                    ?
+                    // rel to min and max
+                    d.measures.map(m => ( m.value - this.state.allStatsLimits[m.name].min ) / ( this.state.allStatsLimits[m.name].max - this.state.allStatsLimits[m.name].min )  )
+                    // rel to max
+                    :
+                    d.measures.map(m => m.value/this.state.allStatsLimits[m.name].max),
               fill: false,
               borderColor: this.getPlayerColor(d.player),
               pointBackgroundColor: this.getPlayerColor(d.player),
@@ -118,6 +125,7 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
               text: this.props.title
             }
           }
+          // see https://www.chartjs.org/docs/3.0.2/axes/radial/linear.html
         }
       }
       />
