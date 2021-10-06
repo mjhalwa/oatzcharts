@@ -79,7 +79,8 @@ export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
       stats[name].measures[m].avg = stats[name].measures[m].sum/stats[name].dayCount;
     }
   }
-//  console.log(JSON.parse(JSON.stringify(Object.keys(stats).map(k => `${k}: ${Object.keys(stats[k].measures).map(j => stats[k].measures[j].min)}`))));
+
+  //console.log(JSON.parse(JSON.stringify(stats)));
   return stats;
 }
 
@@ -111,8 +112,6 @@ export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string
       }
     }
   }
-
-  console.log(limits);
 
   return limits;
 };
