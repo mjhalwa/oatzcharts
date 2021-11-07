@@ -98,10 +98,10 @@ export function fromRawData(rawData: RawChartData[]): ChartData[] {
           name: val.name,
           measures: {
             score: val.score,
+            shots: val.shots,
             goals: val.goals,
             assists: val.assists,
             saves: val.saves,
-            shots: val.shots,
             speed: val.speed
           },
           ranks_total_value: val.ranks_total_value
