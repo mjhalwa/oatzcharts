@@ -19,5 +19,5 @@ port is set hardcoded as __9837__
 
 ``` bash
 curl https://www.oatz.net/rocketleague/api/all > all.json
-curl https://www.oatz.net/rocketleague/api/total | jq "." > total.json
+curl https://www.oatz.net/rocketleague/api/total > total.json
 ```
