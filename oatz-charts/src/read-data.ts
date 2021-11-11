@@ -9,16 +9,45 @@ export type MeasureData = {
   };
 }
 
+/* <--- DID FAIL
+ * in fromRawData() return type has 
+ *   ..., rank: number | MeasureData; name: string | MeasureData , ...
+ * which seems unintended, so we stick to hardcoded type
+// for interfaces (BUT WE USE TYPE ALIASES !!)
+// see https://stackoverflow.com/questions/61670279/typescript-how-to-specify-a-type-that-allows-arbitrary-additional-keys-to-be-a
+// ... so for TYPES:
+// see https://blog.logrocket.com/types-vs-interfaces-in-typescript/
+type RawPlayerDataBase = {
+  rank: number;
+  games: number;
+  name: string;
+  ranks_total_value: number;
+}
+
+type RawPlayerDataMeasures = {
+  [key: string]: MeasureData;
+};
+
+// Intersection Types:
+// > This allows you to add together existing types to get a single type that has all the features you need.
+// see https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#intersection-types
+type RawPlayerData = RawPlayerDataBase & RawPlayerDataMeasures;
+*/
+
 type RawPlayerData = {
   rank: number;
   games: number;
   name: string;
+
   score: MeasureData;
+  shots: MeasureData;
   goals: MeasureData;
   assists: MeasureData;
   saves: MeasureData;
-  shots: MeasureData;
+  kills: MeasureData;
+  deaths: MeasureData;
   speed: MeasureData;
+
   ranks_total_value: number;
 };
 
@@ -102,6 +131,8 @@ export function fromRawData(rawData: RawChartData[]): ChartData[] {
             goals: val.goals,
             assists: val.assists,
             saves: val.saves,
+            kills: val.kills,
+            deaths: val.deaths,
             speed: val.speed
           },
           ranks_total_value: val.ranks_total_value
