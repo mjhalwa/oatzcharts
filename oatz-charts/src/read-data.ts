@@ -144,4 +144,28 @@ export function fromRawData(rawData: RawChartData[]): ChartData[] {
   });
 }
 
+export function getListOfMeasures(chartData: ChartData[]): string[] {
+  if ( data.length > 0 ) {
+    return Object.entries(chartData[0].players[0].measures).map( val => val[0] );
+  } else {
+    return [];
+  }
+}
+
+export function getListOfPlayerNames(chartData: ChartData[]): string[] {
+  if ( data.length > 0 ) {
+    let names: string[] = [];
+    for ( const d of data ) {
+      for ( const name of d.players.map( p => p.name) ) {
+        if ( !names.includes(name) ) {
+          names.push(name);
+        }
+      }
+    }
+    return names;
+  } else {
+    return [];
+  }
+}
+
 export const data: ChartData[] = fromRawData(offlineRawData);

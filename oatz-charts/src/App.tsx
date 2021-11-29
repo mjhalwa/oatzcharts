@@ -1,7 +1,7 @@
 import React, { SelectHTMLAttributes } from 'react';
 import './App.css';
 // import {ChartExample} from './examples'
-import {data as offlineData, ChartData, RawChartData, fromRawData, data} from './read-data';
+import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './read-data';
 // import {calcStats} from './analysis';
 import {RLTRadar} from './RLTRadar';
 
@@ -19,8 +19,13 @@ type AppProps = {
 
 type AppStates = {
   selectedDayIndex: number;
+  selectedLongtermValueIndex: number;
+  longtermValuePlayerSelection: boolean[];
+
   loading: boolean;
   data: ChartData[];
+  listOfMeasures: string[];
+  listOfPlayerNames: string[];
   errorMessage: string;
   PlayerComparison_withMinAndMax: boolean;
 };
@@ -28,8 +33,14 @@ type AppStates = {
 class App extends React.Component<AppProps, AppStates> {
   state = {
     selectedDayIndex: 0, //!< latest day
+
+    selectedLongtermValueIndex: 0,  //!< first value
+    longtermValuePlayerSelection: [],
+
     loading: true,
     data: offlineData,
+    listOfMeasures: [],
+    listOfPlayerNames: [],
     errorMessage: "",
     PlayerComparison_withMinAndMax: true
   }
@@ -39,16 +50,26 @@ class App extends React.Component<AppProps, AppStates> {
       .then(
         (result: RawChartData[]) => {
           try {
+            const tempData = fromRawData(result);
             this.setState({
               loading: false,
-              data: [...fromRawData(result)],
+              data: [...tempData],
+              listOfMeasures: [...getListOfMeasures(tempData)],
+              listOfPlayerNames: [...getListOfPlayerNames(tempData)],
               errorMessage: ""
             });
           } catch (err) {
             this.setState({
               loading: false,
               data: offlineData,
+              listOfMeasures: [...getListOfMeasures(offlineData)],
+              listOfPlayerNames: [...getListOfPlayerNames(offlineData)],
               errorMessage: "Fehler bei Datenkonvertierung"
+            });
+          }
+          if ( this.state.longtermValuePlayerSelection.length !== this.state.listOfPlayerNames.length ) {
+            this.setState({
+              longtermValuePlayerSelection: [...Array(this.state.listOfPlayerNames.length).fill(true)]
             });
           }
         },
@@ -59,17 +80,34 @@ class App extends React.Component<AppProps, AppStates> {
           this.setState({
             loading: false,
             data: offlineData,
+            listOfMeasures: getListOfMeasures(offlineData),
+            listOfPlayerNames: [...getListOfPlayerNames(offlineData)],
             errorMessage: "Server antwortet nicht"
           });
+          if ( this.state.longtermValuePlayerSelection.length !== this.state.listOfPlayerNames.length ) {
+            this.setState({
+              longtermValuePlayerSelection: [...Array(this.state.listOfPlayerNames.length).fill(true)]
+            });
+          }
         }
-      )
+    )
   }
   // see https://reactjs.org/docs/forms.html#the-select-tag
   handleDaySelectionChange(event: React.ChangeEvent<HTMLSelectElement>): void {
     this.setState( {selectedDayIndex: Number(event.target.value)} );
   }
+  handleLongtermValueSelectionChange(event: React.ChangeEvent<HTMLSelectElement>): void {
+    this.setState( {selectedLongtermValueIndex: Number(event.target.value)} );
+  }
   handlePlayerComparison_withMinAndMax_InputChange(event: React.ChangeEvent<HTMLInputElement>): void {
     this.setState({PlayerComparison_withMinAndMax: event.target.checked})
+  }
+  handlelongtermValuePlayerSelection_InputChange(event: React.ChangeEvent<HTMLInputElement>, playerIndex: number): void {
+    // see https://stackoverflow.com/a/52423919
+    // have to define a boolean[]
+    let tempBools: boolean[] = [...this.state.longtermValuePlayerSelection];
+    tempBools[playerIndex] = event.target.checked
+    this.setState({longtermValuePlayerSelection: tempBools})
   }
   render() {
     if (this.state.loading) {
@@ -138,6 +176,34 @@ class App extends React.Component<AppProps, AppStates> {
 
             <section>
               <h3>Longterm Development</h3>
+
+              <form>
+                <label>
+                  Wert:
+                  <select value={this.state.selectedLongtermValueIndex} onChange={(event) => {this.handleLongtermValueSelectionChange(event);}}>
+                    { 
+                      //this.state.data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
+                      //["a","b","c"].map((val,index) => <option value={index} key={val}>{val}</option>)
+                      this.state.listOfMeasures.map((val,index) => <option value={index} key={val}>{val}</option>)
+                    }
+                  </select>
+                </label>
+                {
+                  this.state.listOfPlayerNames.map((val,index) => 
+                    <label key={val}>
+                      {val}
+                      <input
+                        name={val}
+                        type="checkbox"
+                        checked={this.state.longtermValuePlayerSelection[index]}
+                        onChange={(event) => {this.handlelongtermValuePlayerSelection_InputChange(event, index);}}
+                      />
+                    </label>
+                  )
+                }
+              </form>
+
+
               <p>todo</p>
             </section>
 
