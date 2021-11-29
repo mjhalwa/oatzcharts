@@ -84,42 +84,63 @@ class App extends React.Component<AppProps, AppStates> {
           { (this.state.errorMessage !== "") && <div className="error">verwende offline Daten ({this.state.errorMessage})</div> }
           <h1>[OATZ] Charts</h1>
 
-          <form>
-            <label>Datum:</label>
-            <select value={this.state.selectedDayIndex} onChange={(event) => {this.handleDaySelectionChange(event);}}>
-              { this.state.data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
-            </select>
-          </form>
 
           <section>
-            <h2>Player Comparison Radar</h2>
-            <label>
-              relativ zu  min UND max (sonst nur max)
-              <input
-                name="withMinAndMax"
-                type="checkbox"
-                checked={this.state.PlayerComparison_withMinAndMax}
-                onChange={(event) => {this.handlePlayerComparison_withMinAndMax_InputChange(event);}}
-              />
-            </label>
-            <RLTRadar 
-              data={
-                this.state.data[this.state.selectedDayIndex].players.map( p => {
-                  return {
-                    player: p.name,
-                    measures: Object.entries(p.measures).map( ([k, m]) => {return {name: k, value: m.avg.value};} )
-                  };
-                })
-              }
-              allData={this.state.data}
-              title={this.state.data[this.state.selectedDayIndex].name}
-              relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
-              />
+            <h2>Day Performance</h2>
+
+            <form>
+              <label>Datum:</label>
+              <select value={this.state.selectedDayIndex} onChange={(event) => {this.handleDaySelectionChange(event);}}>
+                { this.state.data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
+              </select>
+            </form>
+
+            <section>
+              <h3>Player Comparison Radar</h3>
+              <label>
+                relativ zu  min UND max (sonst nur max)
+                <input
+                  name="withMinAndMax"
+                  type="checkbox"
+                  checked={this.state.PlayerComparison_withMinAndMax}
+                  onChange={(event) => {this.handlePlayerComparison_withMinAndMax_InputChange(event);}}
+                />
+              </label>
+              <RLTRadar 
+                data={
+                  this.state.data[this.state.selectedDayIndex].players.map( p => {
+                    return {
+                      player: p.name,
+                      measures: Object.entries(p.measures).map( ([k, m]) => {return {name: k, value: m.avg.value};} )
+                    };
+                  })
+                }
+                allData={this.state.data}
+                title={this.state.data[this.state.selectedDayIndex].name}
+                relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
+                />
+            </section>
+
+            <section>
+              <h3>Each Player Performance Radar</h3>
+              <p>todo</p>
+            </section>
+
+            <section>
+              <h3>Werteverteilung</h3>
+              <p>todo</p>
+            </section>
+
           </section>
 
           <section>
-            <h2>Each Player Performance Radar</h2>
-            <p>todo</p>
+            <h2>Total</h2>
+
+            <section>
+              <h3>Longterm Development</h3>
+              <p>todo</p>
+            </section>
+
           </section>
         </main>
       );
