@@ -54,7 +54,8 @@ export class LongTermLines extends React.Component<LongTermLinesProps, LongTermL
                       .map( val => { return {
                         label: val.name,
                         data: val.values,
-                        borderColor: getPlayerColor(val.name)
+                        borderColor: getPlayerColor(val.name),
+                        lineTension: 0.25
                       };
                     })
           /*
