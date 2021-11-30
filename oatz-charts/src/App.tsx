@@ -128,11 +128,13 @@ class App extends React.Component<AppProps, AppStates> {
             <h2>Day Performance</h2>
 
             <form>
-              <label>Datum:</label>
-              <select value={this.state.selectedDayIndex} onChange={(event) => {this.handleDaySelectionChange(event);}}>
-                { this.state.data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
-              </select>
-            </form>
+              <label>
+                Datum:
+                <select value={this.state.selectedDayIndex} onChange={(event) => {this.handleDaySelectionChange(event);}}>
+                  { this.state.data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
+                </select>
+                </label>
+              </form>
 
             <section>
               <h3>Player Comparison Radar</h3>
