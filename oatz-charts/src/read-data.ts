@@ -168,4 +168,16 @@ export function getListOfPlayerNames(chartData: ChartData[]): string[] {
   }
 }
 
+export function getPlayerColor(playerName: string): string {
+  if ( playerName === "wiesl2" ) { return 'rgb(102, 255, 255)'; }
+  else if ( playerName === "Grent" ) { return 'rgb(146, 208, 80)'; }
+  else if ( playerName === "Ozumi" ) { return 'rgb(255, 192, 0)'; }
+  else if ( playerName === "Bergsalz" ) { return 'rgb(164, 12, 4)'; }
+  else if ( playerName === "DaPhysika" ) { return 'rgb(112, 48, 160)'; }
+  else if ( playerName === "Bianchii" ) { return 'rgb(255, 68, 204)'; }
+  else {
+    return 'rgb(120,120,120)';
+  }
+}
+
 export const data: ChartData[] = fromRawData(offlineRawData);

@@ -4,6 +4,7 @@ import './App.css';
 import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './read-data';
 // import {calcStats} from './analysis';
 import {RLTRadar} from './RLTRadar';
+import {LongTermLines} from './LongTermLines';
 
 // see https://stackoverflow.com/questions/35469836/detecting-production-vs-development-react-at-runtime
 // > If you are using create-react-app, process.env.NODE_ENV will be "development" in development mode.
@@ -34,7 +35,7 @@ class App extends React.Component<AppProps, AppStates> {
   state = {
     selectedDayIndex: 0, //!< latest day
 
-    selectedLongtermValueIndex: 0,  //!< first value
+    selectedLongtermValueIndex: 7,  //!< first value should be speed, which is the last value
     longtermValuePlayerSelection: [],
 
     loading: true,
@@ -107,7 +108,7 @@ class App extends React.Component<AppProps, AppStates> {
     // have to define a boolean[]
     let tempBools: boolean[] = [...this.state.longtermValuePlayerSelection];
     tempBools[playerIndex] = event.target.checked
-    this.setState({longtermValuePlayerSelection: tempBools})
+    this.setState({longtermValuePlayerSelection: [...tempBools]})
   }
   render() {
     if (this.state.loading) {
@@ -175,7 +176,7 @@ class App extends React.Component<AppProps, AppStates> {
             <h2>Total</h2>
 
             <section>
-              <h3>Longterm Development</h3>
+              <h3>Longterm Evolution</h3>
 
               <form>
                 <label>
@@ -189,6 +190,7 @@ class App extends React.Component<AppProps, AppStates> {
                   </select>
                 </label>
                 {
+                  /* player select not yet necessary, because chartjs already provides it
                   this.state.listOfPlayerNames.map((val,index) => 
                     <label key={val}>
                       {val}
@@ -200,11 +202,17 @@ class App extends React.Component<AppProps, AppStates> {
                       />
                     </label>
                   )
+                  */
                 }
               </form>
 
 
-              <p>todo</p>
+              <LongTermLines
+                allData={this.state.data}
+                playerNames={this.state.listOfPlayerNames}
+                playerSelect={this.state.longtermValuePlayerSelection}
+                selectedMeasure={this.state.listOfMeasures[this.state.selectedLongtermValueIndex]}
+              />
             </section>
 
           </section>

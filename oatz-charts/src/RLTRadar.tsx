@@ -1,6 +1,6 @@
 import React from 'react';
 import {Radar} from 'react-chartjs-2';
-import {ChartData} from './read-data';
+import {ChartData, getPlayerColor} from './read-data';
 import {getAllPlayerLimitStats, Limits} from './analysis';
 
 
@@ -55,17 +55,6 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
   state = {
     allStatsLimits: getAllPlayerLimitStats(this.props.allData),
   }
-  getPlayerColor(playerName: string): string {
-    if ( playerName === "wiesl2" ) { return 'rgb(102, 255, 255)'; }
-    else if ( playerName === "Grent" ) { return 'rgb(146, 208, 80)'; }
-    else if ( playerName === "Ozumi" ) { return 'rgb(255, 192, 0)'; }
-    else if ( playerName === "Bergsalz" ) { return 'rgb(164, 12, 4)'; }
-    else if ( playerName === "DaPhysika" ) { return 'rgb(112, 48, 160)'; }
-    else if ( playerName === "Bianchii" ) { return 'rgb(255, 68, 204)'; }
-    else {
-      return 'rgb(120,120,120)';
-    }
-  }
   render() {
     return (
       <Radar
@@ -84,8 +73,8 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
                     :
                     d.measures.map(m => m.value/this.state.allStatsLimits[m.name].max),
               fill: false,
-              borderColor: this.getPlayerColor(d.player),
-              pointBackgroundColor: this.getPlayerColor(d.player),
+              borderColor: getPlayerColor(d.player),
+              pointBackgroundColor: getPlayerColor(d.player),
               pointBorderColor: '#fff',
             };
           }),
