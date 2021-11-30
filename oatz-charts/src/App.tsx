@@ -177,7 +177,7 @@ class App extends React.Component<AppProps, AppStates> {
           <section>
             <h2>Total</h2>
 
-            <section>
+            <section className="longterm">
               <h3>Longterm Evolution</h3>
 
               <form>

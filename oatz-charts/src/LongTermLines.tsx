@@ -81,6 +81,7 @@ export class LongTermLines extends React.Component<LongTermLinesProps, LongTermL
       options={
         {
           spanGaps: true,
+          maintainAspectRatio: false, //!< allows to set a specific height
           plugins: {
             title: {
               display: true,
