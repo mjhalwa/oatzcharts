@@ -1,3 +1,5 @@
+//!< allows to set a specific height
+
 //!< first value should be speed, which is the last value
 
 //!< latest day
