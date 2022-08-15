@@ -17,6 +17,27 @@
 
 3. Microsoft Excel for Proof of Concept Graphics
 
+## Development
+
+1. start `dev-server`
+
+    ``` ps1
+    # from ./dev-server
+    npm run run
+    #or from ./oatz-charts
+    npm run dev-server
+    ```
+
+2. start react in `./oatz-charts`
+
+    ``` ps1
+    npm run start
+    #or
+    yarn start
+    ```
+
+Note: see `./dev-server/ReadMe.md` on details of served json files, if `dev-server` is not available, will use offline data from `./oatz-charts/data.json`
+
 ## Create Graphics
 
 1. get all JSON data from [OATS Rocket League API](https://www.oatz.net/rocketleague/api/all)
