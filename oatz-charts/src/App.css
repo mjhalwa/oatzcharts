@@ -30,7 +30,11 @@
 
 .app form label :first-child {
   /* padding-right: 10px; */
-  margin-left: 10px;
+  margin-left: 5px;
+}
+
+.app form label {
+  margin-right: 20px;
 }
 
 .longterm {

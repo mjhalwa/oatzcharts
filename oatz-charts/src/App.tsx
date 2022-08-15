@@ -3,6 +3,7 @@ import './App.css';
 // import {ChartExample} from './examples'
 import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './read-data';
 // import {calcStats} from './analysis';
+import {getAbsMonthDiff} from './analysis'
 import {RLTRadar} from './RLTRadar';
 import {LongTermLines} from './LongTermLines';
 
@@ -22,6 +23,7 @@ type AppStates = {
   selectedDayIndex: number;
   selectedLongtermValueIndex: number;
   longtermValuePlayerSelection: boolean[];
+  selectLongtermDuration: string;
 
   loading: boolean;
   data: ChartData[];
@@ -37,6 +39,7 @@ class App extends React.Component<AppProps, AppStates> {
 
     selectedLongtermValueIndex: 7,  //!< first value should be speed, which is the last value
     longtermValuePlayerSelection: [],
+    selectLongtermDuration: 'all',
 
     loading: true,
     data: offlineData,
@@ -92,6 +95,14 @@ class App extends React.Component<AppProps, AppStates> {
           }
         }
     )
+  }
+  getLongTermData(): ChartData[] {
+    switch(this.state.selectLongtermDuration) {
+      case 'all': return this.state.data;
+      case 'last3month': return this.state.data.filter( d => getAbsMonthDiff(new Date(), new Date(d.date)) <= 3)
+      case 'lastyear': return this.state.data.filter( d => getAbsMonthDiff(new Date(), new Date(d.date)) <= 12)
+      default: return [];
+    }
   }
   // see https://reactjs.org/docs/forms.html#the-select-tag
   handleDaySelectionChange(event: React.ChangeEvent<HTMLSelectElement>): void {
@@ -183,12 +194,25 @@ class App extends React.Component<AppProps, AppStates> {
               <form>
                 <label>
                   Wert:
-                  <select value={this.state.selectedLongtermValueIndex} onChange={(event) => {this.handleLongtermValueSelectionChange(event);}}>
+                  <select value={this.state.selectedLongtermValueIndex}
+                          onChange={(event) => {this.handleLongtermValueSelectionChange(event);}}
+                          >
                     { 
                       //this.state.data.map((val,index) => <option value={index} key={val.name}>{val.name.split("-").slice(1).reverse().reduce( (prev,curr) => {return `${prev}.${curr}`}, '').slice(1)}</option> )}
                       //["a","b","c"].map((val,index) => <option value={index} key={val}>{val}</option>)
                       this.state.listOfMeasures.map((val,index) => <option value={index} key={val}>{val}</option>)
                     }
+                  </select>
+                </label>
+
+                <label>
+                  Zeitraum:
+                  <select value={this.state.selectLongtermDuration}
+                          onChange={(e) => {this.setState({selectLongtermDuration: e.target.value})}}
+                          >
+                    <option value='all'>alle</option>
+                    <option value='last3month'>letzte 3 Monate</option>
+                    <option value='lastyear'>letztes Jahr</option>
                   </select>
                 </label>
                 {
@@ -210,7 +234,7 @@ class App extends React.Component<AppProps, AppStates> {
 
 
               <LongTermLines
-                allData={this.state.data}
+                allData={this.getLongTermData()}
                 playerNames={this.state.listOfPlayerNames}
                 playerSelect={this.state.longtermValuePlayerSelection}
                 selectedMeasure={this.state.listOfMeasures[this.state.selectedLongtermValueIndex]}

@@ -115,3 +115,16 @@ export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string
 
   return limits;
 };
+
+/**
+ * calculate number of months between two dates
+ * @param d1 a date
+ * @param d2 another date
+ * @returns absolute difference in months between the dates
+ */
+export function getAbsMonthDiff(d1: Date, d2: Date): number {
+  let months = (d1.getFullYear() - d2.getFullYear()) * 12;
+  months += d1.getMonth();
+  months -= d2.getMonth();
+  return months < 0 ? -months : months;
+}
