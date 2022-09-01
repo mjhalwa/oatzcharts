@@ -12,12 +12,22 @@
 2. bash-package `jq`
 
     ``` bash
-    sudo apt-get install jq
+    sudo apt install jq
     ```
 
 3. Microsoft Excel for Proof of Concept Graphics
 
 ## Development
+
+0. load requirements of `oatz-charts` and `dev-server` project
+
+    ``` ps1
+    # from ./oatz-charts
+    npm install
+    # and
+    # from ./dev-server
+    npm install
+    ```
 
 1. start `dev-server`
 
@@ -36,14 +46,14 @@
     yarn start
     ```
 
-Note: see `./dev-server/ReadMe.md` on details of served json files, if `dev-server` is not available, will use offline data from `./oatz-charts/data.json`
+Note: see `./dev-server/ReadMe.md` on details of served json files, if `dev-server` is not available, will use offline data from `./oatz-charts/src/data.json`
 
 ## Create Graphics
 
 1. get all JSON data from [OATS Rocket League API](https://www.oatz.net/rocketleague/api/all)
 
     ``` bash
-    curl https://www.oatz.net/rocketleague/api/all | jq "." > data.json
+    curl https://www.oatz.net/rocketleague/api/all | jq "." > ./oatz-charts/src/data.json
     ```
 
 2. create Excel-importable csv table from `data.json`
