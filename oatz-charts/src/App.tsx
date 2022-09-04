@@ -134,6 +134,7 @@ class App extends React.Component<AppProps, AppStates> {
           { (this.state.errorMessage !== "") && <div className="error">verwende offline Daten ({this.state.errorMessage})</div> }
           <h1>[OATZ] Charts</h1>
 
+          teste git subtree push
 
           <section>
             <h2>Day Performance</h2>
