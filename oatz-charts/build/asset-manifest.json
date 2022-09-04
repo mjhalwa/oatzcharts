@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/oatzcharts/static/css/main.9e38573a.css",
-    "main.js": "/oatzcharts/static/js/main.b9a38077.js",
+    "main.js": "/oatzcharts/static/js/main.965649c0.js",
     "index.html": "/oatzcharts/index.html",
     "main.9e38573a.css.map": "/oatzcharts/static/css/main.9e38573a.css.map",
-    "main.b9a38077.js.map": "/oatzcharts/static/js/main.b9a38077.js.map"
+    "main.965649c0.js.map": "/oatzcharts/static/js/main.965649c0.js.map"
   },
   "entrypoints": [
     "static/css/main.9e38573a.css",
-    "static/js/main.b9a38077.js"
+    "static/js/main.965649c0.js"
   ]
 }
