@@ -33,6 +33,8 @@ Write-Output "opens Webbrowser"
 Start-Process firefox
 Start-Process chrome
 Start-Sleep 2
+Start-Process "https://react-chartjs-2.js.org/docs/migration-to-v4"
+Start-Sleep 2
 Start-Process "https://oatz.net/rocketleague/all"
 Start-Sleep 2
 Start-Process "https://github.com/mjhalwa/oatzcharts"

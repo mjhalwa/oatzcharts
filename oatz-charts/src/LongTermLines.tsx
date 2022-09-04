@@ -1,4 +1,5 @@
 import React from 'react';
+import 'chart.js/auto'; // lazy migration to react-chartjs-4, see https://react-chartjs-2.js.org/docs/migration-to-v4/#tree-shaking
 import {Line} from 'react-chartjs-2';
 import {ChartData, getPlayerColor} from './read-data';
 
