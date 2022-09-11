@@ -1,10 +1,10 @@
 import React, { SelectHTMLAttributes } from 'react';
 import './App.css';
 import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './lib/read-data';
-// import {calcStats} from './analysis';
 import {getAbsMonthDiff} from './lib/analysis'
 import {RLTRadar} from './components/RLTRadar';
 import {LongTermLines} from './components/LongTermLines';
+import {AvgScoreboard} from './components/AvgScoreboard';
 
 // see https://stackoverflow.com/questions/35469836/detecting-production-vs-development-react-at-runtime
 // > If you are using create-react-app, process.env.NODE_ENV will be "development" in development mode.
@@ -172,6 +172,10 @@ class App extends React.Component<AppProps, AppStates> {
                 allData={this.state.data}
                 title={this.state.data[this.state.selectedDayIndex].name}
                 relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
+                />
+              Rekorde:
+              <AvgScoreboard
+                allData={this.state.data}
                 />
             </section>
 

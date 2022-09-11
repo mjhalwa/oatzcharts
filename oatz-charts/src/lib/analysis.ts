@@ -4,11 +4,16 @@ import {ChartData} from './read-data';
 //import cloneDeep from 'lodash/cloneDeep'
 //const cloneDeep = require('lodash/cloneDeep')
 
+type PlayersMeasureSummarySpec = {
+  value: number;
+  dates: string[];
+}
+
 export type MeasureSummary = {
-  sum: number;
   avg: number;
-  max: number;
-  min: number;
+  sum: number;
+  max: PlayersMeasureSummarySpec;
+  min: PlayersMeasureSummarySpec;
 };
 
 export type PlayerStats = {
@@ -18,10 +23,16 @@ export type PlayerStats = {
 
 function getInitStats(measureKeys: string[]): PlayerStats {
   const initSummary: MeasureSummary = {
-    sum: NaN,
     avg: NaN,
-    max: NaN,
-    min: NaN,
+    sum: NaN,
+    max: {
+      value: NaN,
+      dates: []
+    },
+    min: {
+      value: NaN,
+      dates: []
+    },
   };
   let playerStats: PlayerStats = {
     dayCount: 0,
@@ -53,20 +64,36 @@ export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
         stats[playerName] = JSON.parse(JSON.stringify(getInitStats(measureNames)));
         for ( const m of measureNames ) {
           stats[playerName].measures[m].sum = playerDayData.measures[m].avg.value
-          stats[playerName].measures[m].min = playerDayData.measures[m].avg.value
-          stats[playerName].measures[m].max = playerDayData.measures[m].avg.value
+          stats[playerName].measures[m].min = {
+            value: playerDayData.measures[m].avg.value,
+            dates: [dayData.date]
+          }
+          stats[playerName].measures[m].max = {
+            value: playerDayData.measures[m].avg.value,
+            dates: [dayData.date]
+          }
         }
       } else {
         for ( const m of measureNames ) {
           // increment stats of player to calculate sum
           stats[playerName].measures[m].sum += playerDayData.measures[m].avg.value
           // check for max
-          if (playerDayData.measures[m].avg.value > stats[playerName].measures[m].max) {
-            stats[playerName].measures[m].max = playerDayData.measures[m].avg.value;
+          if (playerDayData.measures[m].avg.value > stats[playerName].measures[m].max.value) {
+            stats[playerName].measures[m].max = {
+              value: playerDayData.measures[m].avg.value,
+              dates: [dayData.date]
+            }
+          } else if (playerDayData.measures[m].avg.value === stats[playerName].measures[m].max.value) {
+            stats[playerName].measures[m].max.dates.push(dayData.date)
           }
           // check for min
-          if (playerDayData.measures[m].avg.value < stats[playerName].measures[m].min) {
-            stats[playerName].measures[m].min = playerDayData.measures[m].avg.value;
+          if (playerDayData.measures[m].avg.value < stats[playerName].measures[m].min.value) {
+            stats[playerName].measures[m].min = {
+              value: playerDayData.measures[m].avg.value,
+              dates: [dayData.date]
+            }
+          } else if (playerDayData.measures[m].avg.value === stats[playerName].measures[m].min.value) {
+            stats[playerName].measures[m].min.dates.push(dayData.date)
           }
         }
       }
@@ -84,9 +111,17 @@ export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
   return stats;
 }
 
+type MeasureSummarySpec = {
+  value: number;
+  player: {
+    name: string;
+    dates: string[];
+  }[];
+}
+
 export type Limits = {
-  min: number;
-  max: number;
+  min: MeasureSummarySpec
+  max: MeasureSummarySpec
 }
 
 export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string]: Limits} {
@@ -97,18 +132,46 @@ export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string
   const measureNames = Object.keys(data[0].players[0].measures)
   for (const name of measureNames) {
     limits[name] = {
-      min: NaN,
-      max: NaN
+      min: {
+        value: NaN,
+        player: []
+      },
+      max: {
+        value: NaN,
+        player: []
+      }
     }
   }
 
-  for (const player in stats) {
-    for ( const measureName in stats[player].measures ) {
-      if ( isNaN(limits[measureName].max) || ( stats[player].measures[measureName].max > limits[measureName].max ) ) {
-        limits[measureName].max = stats[player].measures[measureName].max;
+  for (const playername in stats) {
+    for ( const measureName in stats[playername].measures ) {
+      if ( isNaN(limits[measureName].max.value) || ( stats[playername].measures[measureName].max.value > limits[measureName].max.value ) ) {
+        limits[measureName].max = {
+          value: stats[playername].measures[measureName].max.value,
+          player: [{
+            name: playername,
+            dates: stats[playername].measures[measureName].max.dates
+          }]
+        };
+      } else if ( stats[playername].measures[measureName].max.value === limits[measureName].max.value ) {
+        limits[measureName].max.player.push({
+          name: playername,
+          dates: stats[playername].measures[measureName].max.dates
+        })
       }
-      if ( isNaN(limits[measureName].min) || ( stats[player].measures[measureName].min < limits[measureName].min ) ) {
-        limits[measureName].min = stats[player].measures[measureName].min;
+      if ( isNaN(limits[measureName].min.value) || ( stats[playername].measures[measureName].min.value < limits[measureName].min.value ) ) {
+        limits[measureName].min = {
+          value: stats[playername].measures[measureName].min.value,
+          player: [{
+            name: playername,
+            dates: stats[playername].measures[measureName].min.dates
+          }]
+        };
+      } else if ( stats[playername].measures[measureName].min.value === limits[measureName].min.value ) {
+        limits[measureName].min.player.push({
+          name: playername,
+          dates: stats[playername].measures[measureName].min.dates
+        })
       }
     }
   }

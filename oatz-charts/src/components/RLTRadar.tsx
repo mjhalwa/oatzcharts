@@ -81,10 +81,10 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
               data: this.props.relToMinAndMax
                     ?
                     // rel to min and max
-                    d.measures.map(m => ( m.value - this.state.allStatsLimits[m.name].min ) / ( this.state.allStatsLimits[m.name].max - this.state.allStatsLimits[m.name].min )  )
+                    d.measures.map(m => ( m.value - this.state.allStatsLimits[m.name].min.value ) / ( this.state.allStatsLimits[m.name].max.value - this.state.allStatsLimits[m.name].min.value )  )
                     // rel to max
                     :
-                    d.measures.map(m => m.value/this.state.allStatsLimits[m.name].max),
+                    d.measures.map(m => m.value/this.state.allStatsLimits[m.name].max.value),
               fill: false,
               borderColor: getPlayerColor(d.player),
               pointBackgroundColor: getPlayerColor(d.player),
