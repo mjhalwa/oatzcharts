@@ -150,15 +150,17 @@ class App extends React.Component<AppProps, AppStates> {
 
             <section>
               <h3>Spielervergleich</h3>
-              <label>
-                relativ zu  min UND max (sonst nur max)
-                <input
-                  name="withMinAndMax"
-                  type="checkbox"
-                  checked={this.state.PlayerComparison_withMinAndMax}
-                  onChange={(event) => {this.handlePlayerComparison_withMinAndMax_InputChange(event);}}
-                />
-              </label>
+              <form>
+                <label>
+                  relativ zu  min UND max (sonst nur max)
+                  <input
+                    name="withMinAndMax"
+                    type="checkbox"
+                    checked={this.state.PlayerComparison_withMinAndMax}
+                    onChange={(event) => {this.handlePlayerComparison_withMinAndMax_InputChange(event);}}
+                  />
+                </label>
+              </form>
               <RLTRadar 
                 data={
                   this.state.data[this.state.selectedDayIndex].players.map( p => {
