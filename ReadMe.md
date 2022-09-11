@@ -46,7 +46,7 @@
     yarn start
     ```
 
-Note: see `./dev-server/ReadMe.md` on details of served json files, if `dev-server` is not available, will use offline data from `./oatz-charts/src/data.json`
+Note: see `./dev-server/ReadMe.md` on details of served json files, if `dev-server` is not available, will use offline data from `./oatz-charts/src/lib/data.json`
 
 ## Deployment
 
@@ -78,7 +78,7 @@ git branch -D gh-pages
 1. get all JSON data from [OATS Rocket League API](https://www.oatz.net/rocketleague/api/all)
 
     ``` bash
-    curl https://www.oatz.net/rocketleague/api/all | jq "." > ./oatz-charts/src/data.json
+    curl https://www.oatz.net/rocketleague/api/all | jq "." > ./oatz-charts/src/lib/data.json
     ```
 
 2. create Excel-importable csv table from `data.json`

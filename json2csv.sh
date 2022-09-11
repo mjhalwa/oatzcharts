@@ -9,7 +9,7 @@
        "speed" | \
        sed 's|\t |\t|g'
   # table body
-  cat oatz-charts/src/data.json | \
+  cat oatz-charts/src/lib/data.json | \
     # remote last array entry "[OATZ] RLT History" (by only keeping each days stats)
     jq ".[] | select(.name | match(\"RLT-\") )" | \
     # ... and wrap these loose JSON objects into a JSON array

@@ -1,11 +1,10 @@
 import React, { SelectHTMLAttributes } from 'react';
 import './App.css';
-// import {ChartExample} from './examples'
-import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './read-data';
+import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './lib/read-data';
 // import {calcStats} from './analysis';
-import {getAbsMonthDiff} from './analysis'
-import {RLTRadar} from './RLTRadar';
-import {LongTermLines} from './LongTermLines';
+import {getAbsMonthDiff} from './lib/analysis'
+import {RLTRadar} from './components/RLTRadar';
+import {LongTermLines} from './components/LongTermLines';
 
 // see https://stackoverflow.com/questions/35469836/detecting-production-vs-development-react-at-runtime
 // > If you are using create-react-app, process.env.NODE_ENV will be "development" in development mode.

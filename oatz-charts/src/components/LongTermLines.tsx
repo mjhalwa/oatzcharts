@@ -10,7 +10,7 @@ import { Chart as ChartJS, LineElement, PointElement, LinearScale, Legend, Title
 // - Legend ... required to show the players (de)selection)
 // - Tooltip ... required to show mouse-over tooltips at points in graph
 
-import {ChartData, getPlayerColor} from './read-data';
+import {ChartData, getPlayerColor} from '../lib/read-data';
 
 // registration for tree-shakable way to import in react-chartjs-2 v4
 ChartJS.register(LineElement, PointElement, LinearScale, Legend, Title, Tooltip);

@@ -10,36 +10,88 @@ import { Chart as ChartJS, LineElement, PointElement, CategoryScale, RadialLinea
 // - Legend ... required to show the players (de)selection)
 // - Tooltip ... required to show mouse-over tooltips at points in graph
 
+import {ChartData, getPlayerColor} from '../lib/read-data';
+import {getAllPlayerLimitStats, Limits} from '../lib/analysis';
+
 // registration for tree-shakable way to import in react-chartjs-2 v4
 ChartJS.register(LineElement, PointElement, CategoryScale, RadialLinearScale, Legend, Title, Tooltip);
 
 
-type ChartExampleProps = {
+/* test
+  speed:
+    grent: 7,
+    wiesl: 4,
+    daphysika: 8,
+  goals:
+    grent: 9,
+    wiesl: 12,
+    daphysika 3
 
+  labels: ["speed", "goals"],
+  datasets: [
+    {
+      label: "grent",
+      data: [7, 9],
+    }, {
+      label: "wiesl",
+      data: [4, 12]
+    }, {
+      label: "daphysika",
+      data: [8, 3]
+    }
+  ]
+
+*/
+
+
+
+type InputData = {
+  player: string;
+  measures: {
+    name: string;
+    value: number
+  }[];
 };
 
-type ChartExampleStates = {
-
+type RLTRadarProps = {
+  data: InputData[];
+  allData: ChartData[];
+  title: string;
+  relToMinAndMax: boolean;
 };
 
-export class ChartExample extends React.Component<ChartExampleProps, ChartExampleStates> {
+type RLTRadarStates = {
+  allStatsLimits: {[measureName: string]: Limits};
+};
+
+export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
   state = {
-
+    allStatsLimits: getAllPlayerLimitStats(this.props.allData),
   }
   render() {
     return (
       <Radar
       data={
         {
-          labels: [
-            'Eating',
-            'Drinking',
-            'Sleeping',
-            'Designing',
-            'Coding',
-            'Cycling',
-            'Running'
-          ],
+          labels: this.props.data[0].measures.map(m => m.name),
+          datasets: this.props.data.map(d => {
+            return {
+              label: d.player,
+              //data: d.measures.map(m => m.value),
+              data: this.props.relToMinAndMax
+                    ?
+                    // rel to min and max
+                    d.measures.map(m => ( m.value - this.state.allStatsLimits[m.name].min ) / ( this.state.allStatsLimits[m.name].max - this.state.allStatsLimits[m.name].min )  )
+                    // rel to max
+                    :
+                    d.measures.map(m => m.value/this.state.allStatsLimits[m.name].max),
+              fill: false,
+              borderColor: getPlayerColor(d.player),
+              pointBackgroundColor: getPlayerColor(d.player),
+              pointBorderColor: '#fff',
+            };
+          }),
+          /*
           datasets: [{
             label: 'My First Dataset',
             data: [65, 59, 90, 81, 56, 55, 40],
@@ -61,6 +113,7 @@ export class ChartExample extends React.Component<ChartExampleProps, ChartExampl
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgb(54, 162, 235)'
           }]
+          */
         }
       }
       options={
@@ -69,7 +122,13 @@ export class ChartExample extends React.Component<ChartExampleProps, ChartExampl
             line: {
               borderWidth: 3
             }
+          }, plugins: {
+            title: {
+              display: true,
+              text: this.props.title
+            }
           }
+          // see https://www.chartjs.org/docs/3.0.2/axes/radial/linear.html
         }
       }
       />
