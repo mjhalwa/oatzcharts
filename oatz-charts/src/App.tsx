@@ -134,8 +134,10 @@ class App extends React.Component<AppProps, AppStates> {
           { (this.state.errorMessage !== "") && <div className="error">verwende offline Daten ({this.state.errorMessage})</div> }
           <h1>[OATZ] Charts</h1>
 
+          Die angezeigten Grafiken werden aus den <b>Durchschnittswerten</b> der jeweiligen <em>Rocket League Tuesdays</em> (<em>RLT</em>s) berechnet.
+
           <section>
-            <h2>Day Performance</h2>
+            <h2>Tagesleistungen</h2>
 
             <form>
               <label>
@@ -147,7 +149,7 @@ class App extends React.Component<AppProps, AppStates> {
               </form>
 
             <section>
-              <h3>Player Comparison Radar</h3>
+              <h3>Spielervergleich</h3>
               <label>
                 relativ zu  min UND max (sonst nur max)
                 <input
@@ -173,7 +175,7 @@ class App extends React.Component<AppProps, AppStates> {
             </section>
 
             <section>
-              <h3>Each Player Performance Radar</h3>
+              <h3>Einzelleistungen der Spieler</h3>
               <p>todo</p>
             </section>
 
@@ -185,10 +187,10 @@ class App extends React.Component<AppProps, AppStates> {
           </section>
 
           <section>
-            <h2>Total</h2>
+            <h2>Gesamtleistungen</h2>
 
             <section className="longterm">
-              <h3>Longterm Evolution</h3>
+              <h3>Langzeit-Betrachtung</h3>
 
               <form>
                 <label>
