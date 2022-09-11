@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/oatzcharts/static/css/main.9e38573a.css",
-    "main.js": "/oatzcharts/static/js/main.975d9e69.js",
+    "main.css": "/oatzcharts/static/css/main.3575ac71.css",
+    "main.js": "/oatzcharts/static/js/main.a23c0afb.js",
     "index.html": "/oatzcharts/index.html",
-    "main.9e38573a.css.map": "/oatzcharts/static/css/main.9e38573a.css.map",
-    "main.975d9e69.js.map": "/oatzcharts/static/js/main.975d9e69.js.map"
+    "main.3575ac71.css.map": "/oatzcharts/static/css/main.3575ac71.css.map",
+    "main.a23c0afb.js.map": "/oatzcharts/static/js/main.a23c0afb.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e38573a.css",
-    "static/js/main.975d9e69.js"
+    "static/css/main.3575ac71.css",
+    "static/js/main.a23c0afb.js"
   ]
 }
