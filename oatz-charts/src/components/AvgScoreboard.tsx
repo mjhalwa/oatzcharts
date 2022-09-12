@@ -40,7 +40,10 @@ export class AvgScoreboard extends React.Component<AvgScoreboardProps, AvgScoreb
                 <td>
                   <ol>{this.state.allStatsLimits[measurename].max.player
                       .map( p => 
-                        <li title={`${p.dates.join('\n')}`} style={{color: getPlayerColor(p.name)}}>{p.name}</li>
+                        <li style={{color: getPlayerColor(p.name)}}>
+                          {p.name}
+                          <ol>{p.dates.map( d => <li>{d}</li> )}</ol>
+                        </li>
                       )
                     }
                   </ol>
@@ -49,7 +52,10 @@ export class AvgScoreboard extends React.Component<AvgScoreboardProps, AvgScoreb
                 <td>
                   <ol>{this.state.allStatsLimits[measurename].min.player
                       .map( p => 
-                        <li title={`${p.dates.join('\n')}`} style={{color: getPlayerColor(p.name)}}>{p.name}</li>
+                        <li style={{color: getPlayerColor(p.name)}}>
+                          {p.name}
+                          <ol>{p.dates.map( d => <li>{d}</li> )}</ol>
+                        </li>
                       )
                     }
                   </ol>
