@@ -2,6 +2,7 @@ import React from 'react';
 
 import {getAllPlayerLimitStats} from '../lib/analysis';
 import {Limits} from '../lib/analysis-model';
+import {getPlayerColor} from '../lib/read-data';
 import {ChartData} from '../lib/read-data-model';
 
 
@@ -36,15 +37,23 @@ export class AvgScoreboard extends React.Component<AvgScoreboardProps, AvgScoreb
               <tr key={measurename}>
                 <td>{measurename}</td>
                 <td>{this.state.allStatsLimits[measurename].max.value.toFixed(2)}</td>
-                <td>{this.state.allStatsLimits[measurename].max.player
-                      .map( p => `${p.name} (${p.dates.join(', ')})`)
-                      .join(', ')
-                    }</td>
+                <td>
+                  <ol>{this.state.allStatsLimits[measurename].max.player
+                      .map( p => 
+                        <li title={`${p.dates.join('\n')}`} style={{color: getPlayerColor(p.name)}}>{p.name}</li>
+                      )
+                    }
+                  </ol>
+                </td>
                 <td>{this.state.allStatsLimits[measurename].min.value.toFixed(2)}</td>
-                <td>{this.state.allStatsLimits[measurename].min.player
-                      .map( p => `${p.name} (${p.dates.join(', ')})`)
-                      .join(', ')
-                    }</td>
+                <td>
+                  <ol>{this.state.allStatsLimits[measurename].min.player
+                      .map( p => 
+                        <li title={`${p.dates.join('\n')}`} style={{color: getPlayerColor(p.name)}}>{p.name}</li>
+                      )
+                    }
+                  </ol>
+                </td>
               </tr>
           )}
         </tbody>

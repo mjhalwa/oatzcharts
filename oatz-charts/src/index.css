@@ -1,7 +1,35 @@
+table {
+  /* background-color: rgb(65, 65, 65);
+  color:rgb(200, 200, 200); */
+  background-color: rgb(227, 227, 227);
+
+  margin: 0 auto;
+}
+
 table,
 th,
 td {
-  padding: 10px;
-  border: 1px solid black;
+  padding: 4px 8px;
+  border: 2px solid white;
   border-collapse: collapse;
+  /* text-align: center; */
+}
+
+td ol {
+  /* remove list bullets and ... */
+  list-style: none;
+  /* ... space around each list item */
+  margin: 0;
+  padding: 0;
+}
+
+td ol {
+  /* list items next to each other but on next line on viewport widths */
+  display: flex;
+  flex-wrap: wrap;
+}
+td li {
+  /* margin around list items (overlaps between list items) */
+  margin: 4px;
+  font-weight: bold;
 }

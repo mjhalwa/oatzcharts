@@ -5,6 +5,11 @@ import * as model from './analysis-model';
 //import cloneDeep from 'lodash/cloneDeep'
 //const cloneDeep = require('lodash/cloneDeep')
 
+/**
+ * @brief helper function to initialize each players stats before calculation
+ * @param measureKeys name of all provided measures
+ * @returns an initial object
+ */
 function getInitStats(measureKeys: string[]): model.PlayerStats {
   const initSummary: model.MeasureSummary = {
     avg: NaN,
@@ -29,6 +34,11 @@ function getInitStats(measureKeys: string[]): model.PlayerStats {
   return playerStats;
 }
 
+/**
+ * @brief calculate sum, average, minimum and maximum of each measure for each player
+ * @param data 
+ * @returns stats for each player
+ */
 // TODO: add parameter condition (=callback function to return true/false wether or not to include in stats)
 export function calcStats(data: ChartData[]): {[player: string]: model.PlayerStats } {
   let stats: {[playerName: string]: model.PlayerStats } = {};
@@ -37,6 +47,9 @@ export function calcStats(data: ChartData[]): {[player: string]: model.PlayerSta
 
   for ( const dayData of data ) {
     for ( const playerDayData of dayData.players ) {
+      // skip player's data for this day, if only played less than 10 games
+      if ( playerDayData.games < 10 ) continue;
+
       const playerName = playerDayData.name;
       if ( ! ( playerName in stats ) ) {
         // init player stats 
@@ -95,6 +108,11 @@ export function calcStats(data: ChartData[]): {[player: string]: model.PlayerSta
   return stats;
 }
 
+/**
+ * calculate minimum and maximum for each measure over all contributing players
+ * @param data 
+ * @returns stats for all players
+ */
 export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string]: model.Limits} {
   const stats = calcStats(data);
 
