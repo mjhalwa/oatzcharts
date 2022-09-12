@@ -1,6 +1,7 @@
 import React, { SelectHTMLAttributes } from 'react';
 import './App.css';
-import {data as offlineData, ChartData, RawChartData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './lib/read-data';
+import {data as offlineData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './lib/read-data';
+import {ChartData, RawChartData} from './lib/read-data-model';
 import {getAbsMonthDiff} from './lib/analysis'
 import {RLTRadar} from './components/RLTRadar';
 import {LongTermLines} from './components/LongTermLines';

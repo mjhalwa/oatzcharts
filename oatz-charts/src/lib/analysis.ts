@@ -1,28 +1,12 @@
 import { isNull } from 'lodash';
-import {ChartData} from './read-data';
+import {ChartData} from './read-data-model';
+import * as model from './analysis-model';
 // see https://github.com/lodash/lodash/issues/3192
 //import cloneDeep from 'lodash/cloneDeep'
 //const cloneDeep = require('lodash/cloneDeep')
 
-type PlayersMeasureSummarySpec = {
-  value: number;
-  dates: string[];
-}
-
-export type MeasureSummary = {
-  avg: number;
-  sum: number;
-  max: PlayersMeasureSummarySpec;
-  min: PlayersMeasureSummarySpec;
-};
-
-export type PlayerStats = {
-  dayCount: number;
-  measures: {[key: string]: MeasureSummary};
-};
-
-function getInitStats(measureKeys: string[]): PlayerStats {
-  const initSummary: MeasureSummary = {
+function getInitStats(measureKeys: string[]): model.PlayerStats {
+  const initSummary: model.MeasureSummary = {
     avg: NaN,
     sum: NaN,
     max: {
@@ -34,7 +18,7 @@ function getInitStats(measureKeys: string[]): PlayerStats {
       dates: []
     },
   };
-  let playerStats: PlayerStats = {
+  let playerStats: model.PlayerStats = {
     dayCount: 0,
     measures: {}
   };
@@ -46,8 +30,8 @@ function getInitStats(measureKeys: string[]): PlayerStats {
 }
 
 // TODO: add parameter condition (=callback function to return true/false wether or not to include in stats)
-export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
-  let stats: {[playerName: string]: PlayerStats } = {};
+export function calcStats(data: ChartData[]): {[player: string]: model.PlayerStats } {
+  let stats: {[playerName: string]: model.PlayerStats } = {};
 
   const measureNames = Object.keys(data[0].players[0].measures)
 
@@ -111,23 +95,10 @@ export function calcStats(data: ChartData[]): {[player: string]: PlayerStats } {
   return stats;
 }
 
-type MeasureSummarySpec = {
-  value: number;
-  player: {
-    name: string;
-    dates: string[];
-  }[];
-}
-
-export type Limits = {
-  min: MeasureSummarySpec
-  max: MeasureSummarySpec
-}
-
-export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string]: Limits} {
+export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string]: model.Limits} {
   const stats = calcStats(data);
 
-  let limits: {[measureName: string]: Limits } = {};
+  let limits: {[measureName: string]: model.Limits } = {};
 
   const measureNames = Object.keys(data[0].players[0].measures)
   for (const name of measureNames) {

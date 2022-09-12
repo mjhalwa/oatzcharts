@@ -1,13 +1,4 @@
-export type MeasureData = {
-  total?: {
-    value: number;
-    rank: number;
-  };
-  avg: {
-    value: number;
-    rank: number;
-  };
-}
+import * as model from './read-data-model';
 
 /* <--- DID FAIL
  * in fromRawData() return type has 
@@ -34,93 +25,21 @@ type RawPlayerDataMeasures = {
 type RawPlayerData = RawPlayerDataBase & RawPlayerDataMeasures;
 */
 
-type RawPlayerData = {
-  rank: number;
-  games: number;
-  name: string;
-
-  score: MeasureData;
-  shots: MeasureData;
-  goals: MeasureData;
-  assists: MeasureData;
-  saves: MeasureData;
-  kills: MeasureData;
-  deaths: MeasureData;
-  speed: MeasureData;
-
-  ranks_total_value: number;
-};
-
-export type PlayerData = {
-  rank: number;
-  games: number;
-  name: string;
-  measures: {[key: string]: MeasureData};
-  ranks_total_value: number;
-};
-
-export type TeamData = {
-  name: string;
-  wins: number;
-  losses: number;
-  perc: number;
-};
-
-export type PlayerGameData = {
-  name: string;
-  score: number;
-  goals: number;
-  assists: number;
-  saves: number;
-  shots: number;
-};
-
-export type GameData = {
-  id: string;
-  created: string;
-  blue: {
-    goals: number;
-    players: PlayerGameData[];
-  }
-  orange: {
-    goals: number;
-    players: PlayerGameData[];
-  }
-};
-
-export type RawChartData = {
-  name: string;
-  id: string;
-  date: string;
-  players: RawPlayerData[];
-  teams: TeamData[];
-  games: GameData[];
-};
-
-export type ChartData = {
-  name: string;
-  id: string;
-  date: string;
-  players: PlayerData[];
-  teams: TeamData[];
-  games: GameData[];
-};
-
 // load json files
 // using profiler: see https://stackoverflow.com/questions/33650399/es6-modules-implementation-how-to-load-a-json-file/33650470#33650470
 //  import Profile from './components/profile';
 //  import chartdata from 'json!../data.json';
 // easier version: https://stackoverflow.com/a/52349546
-const offlineRawData : RawChartData[] = require('./data.json');
+const offlineRawData : model.RawChartData[] = require('./data.json');
 
 // convert RawPlayerData to PlayerData
-export function fromRawData(rawData: RawChartData[]): ChartData[] {
-  return rawData.map((rawElem: RawChartData) => {
+export function fromRawData(rawData: model.RawChartData[]): model.ChartData[] {
+  return rawData.map((rawElem: model.RawChartData) => {
     return {
       name: rawElem.name,
       id: rawElem.id,
       date: rawElem.date,
-      players: rawElem.players.map((val: RawPlayerData) => {
+      players: rawElem.players.map((val: model.RawPlayerData) => {
         return {
           rank: val.rank,
           games: val.games,
@@ -144,18 +63,18 @@ export function fromRawData(rawData: RawChartData[]): ChartData[] {
   });
 }
 
-export function getListOfMeasures(chartData: ChartData[]): string[] {
-  if ( data.length > 0 ) {
+export function getListOfMeasures(chartData: model.ChartData[]): string[] {
+  if ( chartData.length > 0 ) {
     return Object.entries(chartData[0].players[0].measures).map( val => val[0] );
   } else {
     return [];
   }
 }
 
-export function getListOfPlayerNames(chartData: ChartData[]): string[] {
-  if ( data.length > 0 ) {
+export function getListOfPlayerNames(chartData: model.ChartData[]): string[] {
+  if ( chartData.length > 0 ) {
     let names: string[] = [];
-    for ( const d of data ) {
+    for ( const d of chartData ) {
       for ( const name of d.players.map( p => p.name) ) {
         if ( !names.includes(name) ) {
           names.push(name);
@@ -180,4 +99,4 @@ export function getPlayerColor(playerName: string): string {
   }
 }
 
-export const data: ChartData[] = fromRawData(offlineRawData);
+export const data: model.ChartData[] = fromRawData(offlineRawData);

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import {getAllPlayerLimitStats, Limits} from '../lib/analysis';
-import {ChartData} from '../lib/read-data';
+import {getAllPlayerLimitStats} from '../lib/analysis';
+import {Limits} from '../lib/analysis-model';
+import {ChartData} from '../lib/read-data-model';
 
 
 type AvgScoreboardProps = {

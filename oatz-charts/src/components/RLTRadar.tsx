@@ -10,8 +10,10 @@ import { Chart as ChartJS, LineElement, PointElement, CategoryScale, RadialLinea
 // - Legend ... required to show the players (de)selection)
 // - Tooltip ... required to show mouse-over tooltips at points in graph
 
-import {ChartData, getPlayerColor} from '../lib/read-data';
-import {getAllPlayerLimitStats, Limits} from '../lib/analysis';
+import {getPlayerColor} from '../lib/read-data';
+import {ChartData} from '../lib/read-data-model';
+import {getAllPlayerLimitStats} from '../lib/analysis';
+import {Limits} from '../lib/analysis-model';
 
 // registration for tree-shakable way to import in react-chartjs-2 v4
 ChartJS.register(LineElement, PointElement, CategoryScale, RadialLinearScale, Legend, Title, Tooltip);
