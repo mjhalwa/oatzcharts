@@ -40,7 +40,7 @@ function getInitStats(measureKeys: string[]): model.PlayerStats {
  * @returns stats for each player
  */
 // TODO: add parameter condition (=callback function to return true/false wether or not to include in stats)
-export function calcStats(data: ChartData[]): {[player: string]: model.PlayerStats } {
+export function calcEachPlayerStats(data: ChartData[]): {[player: string]: model.PlayerStats } {
   let stats: {[playerName: string]: model.PlayerStats } = {};
 
   const measureNames = Object.keys(data[0].players[0].measures)
@@ -109,12 +109,13 @@ export function calcStats(data: ChartData[]): {[player: string]: model.PlayerSta
 }
 
 /**
- * calculate minimum and maximum for each measure over all contributing players
+ * calculate minimum and maximum for each measure in the passed data
  * @param data 
  * @returns stats for all players
  */
-export function getAllPlayerLimitStats(data: ChartData[]): {[measureName: string]: model.Limits} {
-  const stats = calcStats(data);
+export function getLimits(data: ChartData[]): {[measureName: string]: model.Limits} {
+
+  const stats = calcEachPlayerStats(data);
 
   let limits: {[measureName: string]: model.Limits } = {};
 

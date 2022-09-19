@@ -2,7 +2,7 @@ import React, { SelectHTMLAttributes } from 'react';
 import './App.css';
 import {data as offlineData, fromRawData, getListOfMeasures, getListOfPlayerNames} from './lib/read-data';
 import {ChartData, RawChartData} from './lib/read-data-model';
-import {getAbsMonthDiff} from './lib/analysis'
+import {getAbsMonthDiff, getLimits} from './lib/analysis'
 import {RLTRadar} from './components/RLTRadar';
 import {LongTermLines} from './components/LongTermLines';
 import {AvgScoreboard} from './components/AvgScoreboard';
@@ -134,7 +134,7 @@ class App extends React.Component<AppProps, AppStates> {
           { (this.state.errorMessage !== "") && <div className="error">verwende offline Daten ({this.state.errorMessage})</div> }
           <h1>[OATZ] Charts</h1>
 
-          Die angezeigten Grafiken werden aus den <b>Durchschnittswerten</b> der jeweiligen <em>Rocket League Tuesdays</em> (<em>RLT</em>s) berechnet.
+          <p>Die angezeigten Grafiken werden aus den <b>Durchschnittswerten</b> der jeweiligen <em>Rocket League Tuesdays</em> (<em>RLT</em>s) berechnet.</p>
 
           <section>
             <h2>Tagesleistungen</h2>
@@ -170,9 +170,9 @@ class App extends React.Component<AppProps, AppStates> {
                     };
                   })
                 }
-                allData={this.state.data}
                 title={this.state.data[this.state.selectedDayIndex].name}
                 relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
+                limits={getLimits(this.state.data)}
                 />
               Rekorde:
               <AvgScoreboard
@@ -182,7 +182,30 @@ class App extends React.Component<AppProps, AppStates> {
 
             <section>
               <h3>Einzelleistungen der Spieler</h3>
-              <p>todo</p>
+              
+              <p>Für jeden Spieler dieses Tages werden die erzielten durchschnittlichen Leistungen des Tages gegen die jeweils maximale und minimale Leistung desselben Spielders über alle RLTs</p>
+
+              <div className='individual-performance-container'>
+                {this.state.data[this.state.selectedDayIndex].players.map( playerDayData =>
+                  <RLTRadar
+                    key={playerDayData.name}
+                    className='individual-performance-radar'
+                    data={
+                      this.state.data[this.state.selectedDayIndex].players.filter( p => p.name === playerDayData.name )
+                                                                          .map( p => {
+                        return {
+                          player: p.name,
+                          measures: Object.entries(p.measures).map( ([k, m]) => {return {name: k, value: m.avg.value};} )
+                        };
+                      })
+                    }
+                    title={playerDayData.name}
+                    relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
+                    limits={getLimits(this.state.data
+                                        .map(cd => {return {...cd, players: cd.players.filter(p => p.name === playerDayData.name)}; }))}
+                    />
+                )}
+              </div>
             </section>
 
             <section>

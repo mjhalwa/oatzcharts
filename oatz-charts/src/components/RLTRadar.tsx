@@ -11,8 +11,6 @@ import { Chart as ChartJS, LineElement, PointElement, CategoryScale, RadialLinea
 // - Tooltip ... required to show mouse-over tooltips at points in graph
 
 import {getPlayerColor} from '../lib/read-data';
-import {ChartData} from '../lib/read-data-model';
-import {getAllPlayerLimitStats} from '../lib/analysis';
 import {Limits} from '../lib/analysis-model';
 
 // registration for tree-shakable way to import in react-chartjs-2 v4
@@ -56,23 +54,23 @@ type InputData = {
 };
 
 type RLTRadarProps = {
+  className?: string;
   data: InputData[];
-  allData: ChartData[];
   title: string;
   relToMinAndMax: boolean;
+  limits: {[measureName: string]: Limits};
 };
 
 type RLTRadarStates = {
-  allStatsLimits: {[measureName: string]: Limits};
 };
 
 export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
   state = {
-    allStatsLimits: getAllPlayerLimitStats(this.props.allData),
   }
   render() {
     return (
       <Radar
+      className={`${this.props.className ?? ''}`}
       data={
         {
           labels: this.props.data[0].measures.map(m => m.name),
@@ -83,10 +81,10 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
               data: this.props.relToMinAndMax
                     ?
                     // rel to min and max
-                    d.measures.map(m => ( m.value - this.state.allStatsLimits[m.name].min.value ) / ( this.state.allStatsLimits[m.name].max.value - this.state.allStatsLimits[m.name].min.value )  )
+                    d.measures.map(m => ( m.value - this.props.limits[m.name].min.value ) / ( this.props.limits[m.name].max.value - this.props.limits[m.name].min.value )  )
                     // rel to max
                     :
-                    d.measures.map(m => m.value/this.state.allStatsLimits[m.name].max.value),
+                    d.measures.map(m => m.value/this.props.limits[m.name].max.value),
               fill: false,
               borderColor: getPlayerColor(d.player),
               pointBackgroundColor: getPlayerColor(d.player),

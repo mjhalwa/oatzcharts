@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {getAllPlayerLimitStats} from '../lib/analysis';
+import {getLimits} from '../lib/analysis';
 import {Limits} from '../lib/analysis-model';
 import {getPlayerColor} from '../lib/read-data';
 import {ChartData} from '../lib/read-data-model';
@@ -16,11 +16,11 @@ type AvgScoreboardStates = {
 
 export class AvgScoreboard extends React.Component<AvgScoreboardProps, AvgScoreboardStates> {
   state = {
-    allStatsLimits: getAllPlayerLimitStats(this.props.allData),
+    allStatsLimits: getLimits(this.props.allData),
   }
 
   render() {
-    console.log(this.state.allStatsLimits)
+    // console.log(this.state.allStatsLimits)
     return (
       <table>
         <thead>
@@ -40,9 +40,10 @@ export class AvgScoreboard extends React.Component<AvgScoreboardProps, AvgScoreb
                 <td>
                   <ol>{this.state.allStatsLimits[measurename].max.player
                       .map( p => 
-                        <li style={{color: getPlayerColor(p.name)}}>
+                        <li key={p.name} style={{color: getPlayerColor(p.name)}}>
                           {p.name}
-                          <ol>{p.dates.map( d => <li>{d}</li> )}</ol>
+                          {/* only newest date */}
+                          <ol>{[p.dates[0]].map( d => <li key={d}>{d}</li> )}</ol>
                         </li>
                       )
                     }
@@ -52,9 +53,10 @@ export class AvgScoreboard extends React.Component<AvgScoreboardProps, AvgScoreb
                 <td>
                   <ol>{this.state.allStatsLimits[measurename].min.player
                       .map( p => 
-                        <li style={{color: getPlayerColor(p.name)}}>
+                        <li key={p.name} style={{color: getPlayerColor(p.name)}}>
                           {p.name}
-                          <ol>{p.dates.map( d => <li>{d}</li> )}</ol>
+                          {/* only newest date */}
+                          <ol>{[p.dates[0]].map( d => <li key={d}>{d}</li> )}</ol>
                         </li>
                       )
                     }

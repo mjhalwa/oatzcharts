@@ -13,6 +13,8 @@ td {
   border: 3px solid white;
   border-collapse: collapse;
   /* text-align: center; */
+
+  font-size: 0.9em;
 }
 
 td ol {
@@ -38,7 +40,6 @@ td>ol>li {
 }
 
 td>ol>li>ol {
-  margin-left: 4px;
   display: flex;
   flex-wrap: wrap;
   font-weight: normal;
@@ -55,4 +56,17 @@ td>ol>li>ol>li {
   margin: 1px 1px;
 
   color: rgb(94, 94, 94);
+}
+
+
+.individual-performance-container {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: space-evenly;
+}
+
+.individual-performance-radar {
+  max-width: 180px;
+  max-height: 180px;
 }
