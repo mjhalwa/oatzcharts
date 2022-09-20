@@ -65,7 +65,11 @@ export function fromRawData(rawData: model.RawChartData[]): model.ChartData[] {
 
 export function getListOfMeasures(chartData: model.ChartData[]): string[] {
   if ( chartData.length > 0 ) {
-    return Object.entries(chartData[0].players[0].measures).map( val => val[0] );
+    return Object.entries(chartData.filter(dayData => dayData.players.length > 0) // only days where players exist
+                                   [0] // first day
+                                   .players[0] // first player
+                                   .measures)  // list of measures is same on all days and for all players
+           .map( val => val[0] );
   } else {
     return [];
   }

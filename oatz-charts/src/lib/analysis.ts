@@ -43,7 +43,11 @@ function getInitStats(measureKeys: string[]): model.PlayerStats {
 export function calcEachPlayerStats(data: ChartData[]): {[player: string]: model.PlayerStats } {
   let stats: {[playerName: string]: model.PlayerStats } = {};
 
-  const measureNames = Object.keys(data[0].players[0].measures)
+  // TODO: may this be replaced by `read-data.ts`::getListOfMeasures(data) ?
+  const measureNames = Object.keys(data.filter(dayData => dayData.players.length > 0) // only days where players exist
+                                        [0] // first day
+                                        .players[0] // first player
+                                        .measures)  // list of measures is same on all days and for all players
 
   for ( const dayData of data ) {
     for ( const playerDayData of dayData.players ) {
@@ -119,7 +123,11 @@ export function getLimits(data: ChartData[]): {[measureName: string]: model.Limi
 
   let limits: {[measureName: string]: model.Limits } = {};
 
-  const measureNames = Object.keys(data[0].players[0].measures)
+  // TODO: may this be replaced by `read-data.ts`::getListOfMeasures(data) ?
+  const measureNames = Object.keys(data.filter(dayData => dayData.players.length > 0) // only days where players exist
+                                        [0] // first day
+                                        .players[0] // first player
+                                        .measures)  // list of measures is same on all days and for all players
   for (const name of measureNames) {
     limits[name] = {
       min: {
