@@ -15,7 +15,7 @@ Servs:
 
 port is set hardcoded as __9837__
 
-## Update backround datd
+## Update backround data
 
 ``` bash
 curl https://www.oatz.net/rocketleague/api/all > all.json
