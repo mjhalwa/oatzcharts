@@ -73,18 +73,21 @@ export class RLTRadar extends React.Component<RLTRadarProps, RLTRadarStates> {
       className={`${this.props.className ?? ''}`}
       data={
         {
-          labels: this.props.data[0].measures.map(m => m.name),
+          labels: this.props.data[0].measures.map(m => (m.name === "deaths") ? `${m.name}*` : m.name),
           datasets: this.props.data.map(d => {
             return {
               label: d.player,
               //data: d.measures.map(m => m.value),
-              data: this.props.relToMinAndMax
-                    ?
-                    // rel to min and max
-                    d.measures.map(m => ( m.value - this.props.limits[m.name].min.value ) / ( this.props.limits[m.name].max.value - this.props.limits[m.name].min.value )  )
-                    // rel to max
-                    :
-                    d.measures.map(m => m.value/this.props.limits[m.name].max.value),
+              data: d.measures.map(m => {
+                const value = this.props.relToMinAndMax
+                              ?
+                              // rel to min and max
+                              ( m.value - this.props.limits[m.name].min.value ) / ( this.props.limits[m.name].max.value - this.props.limits[m.name].min.value )
+                              :
+                              // rel to max
+                              m.value/this.props.limits[m.name].max.value
+                return (m.name === "deaths") ? 1 - value : value
+              }),
               fill: false,
               borderColor: getPlayerColor(d.player),
               pointBackgroundColor: getPlayerColor(d.player),

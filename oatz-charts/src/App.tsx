@@ -174,6 +174,7 @@ class App extends React.Component<AppProps, AppStates> {
                 relToMinAndMax={this.state.PlayerComparison_withMinAndMax}
                 limits={getLimits(this.state.data)}
                 />
+              <p className="note"><em>deaths*:</em> wird komplementär dargestellt, da wenige Tode besser sind als viele</p>
               Rekorde:
               <AvgScoreboard
                 allData={this.state.data}

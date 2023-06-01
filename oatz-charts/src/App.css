@@ -41,3 +41,11 @@
 
   height: 500px;
 }
+
+p.note {
+  font-size: 0.8em;
+  text-align: center;
+}
+p.note em {
+  font-weight: bold;
+}
